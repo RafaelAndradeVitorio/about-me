@@ -137,6 +137,43 @@
       transform: translateY(-1px);
     }
 
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+    }
+
+    .lang-switch button {
+      appearance: none;
+      min-width: 36px;
+      min-height: 30px;
+      padding: 0 9px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 800;
+      transition: color .22s ease, background .22s ease, border-color .22s ease, transform .22s ease;
+    }
+
+    .lang-switch button:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .lang-switch button.is-active {
+      color: oklch(16% 0.018 250);
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
     .hero {
       min-height: 92vh;
       display: grid;
@@ -691,6 +728,9 @@
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
+      .nav {
+        gap: 10px;
+      }
       .hero,
       .grid-2,
       .grid-3,
@@ -718,6 +758,11 @@
 
     @media (max-width: 560px) {
       .page { width: min(100% - 22px, var(--max)); }
+      .brand span:last-child { display: none; }
+      .lang-switch button {
+        min-width: 32px;
+        padding: 0 7px;
+      }
       h1 { font-size: 40px; }
       h2 { font-size: 34px; }
       .card, .timeline-item, .contact, .hero-shot, .mock-card { padding: 18px; }
@@ -747,6 +792,11 @@
         <a href="#nexo">Projeto</a>
         <a href="#skills">Stack</a>
         <a href="#contato">Contato</a>
+      </div>
+      <div class="lang-switch" aria-label="Selecionar idioma">
+        <button type="button" data-lang="pt" class="is-active" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
       </div>
     </nav>
   </header>
@@ -1040,6 +1090,328 @@
 
   <script>
     (() => {
+      const translations = {
+        pt: {
+          lang: "pt-BR",
+          title: "Rafael Andrade Silva | Frontend Developer",
+          description: "Portfólio de Rafael Andrade Silva, Frontend Developer com experiência em React, TypeScript, Angular, produto digital, SaaS, Supabase e pagamentos.",
+          text: {
+            ".nav-links a:nth-child(1)": "Sobre",
+            ".nav-links a:nth-child(2)": "Experiência",
+            ".nav-links a:nth-child(3)": "Projeto",
+            ".nav-links a:nth-child(4)": "Stack",
+            ".nav-links a:nth-child(5)": "Contato",
+            ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
+            ".hero h1": "Frontend Developer que transforma produto, dados e operação em interfaces claras.",
+            ".hero .lead": "Sou Rafael Andrade Silva. Trabalho com frontend em produto digital na inChurch e construí o Nexo, um SaaS real para gestão esportiva com alunos, cobranças, pagamentos, WhatsApp e segurança multi-tenant.",
+            ".hero .actions .btn-primary": "Ver projeto principal",
+            ".hero .actions .btn-secondary": "Falar comigo no LinkedIn",
+            ".hero .panel-header span:last-child": "preview do projeto",
+            ".hero-caption .mini-stat:nth-child(1) span": "alunos em operação",
+            ".hero-caption .mini-stat:nth-child(2) span": "cobranças acompanhadas",
+            ".hero-caption .mini-stat:nth-child(3) strong": "SaaS real",
+            ".hero-caption .mini-stat:nth-child(3) span": "pagamentos + WhatsApp",
+            "#sobre .section-kicker": "Perfil",
+            "#sobre h2": "Frontend com repertório de produto, dados e operação real.",
+            "#sobre .section-head p": "Minha base é construir e evoluir interfaces em produto digital. O diferencial é entender o que acontece depois da tela: regra de negócio, dado financeiro, segurança e rotina de quem opera.",
+            "#sobre .card:nth-child(1) h3": "Experiência profissional",
+            "#sobre .card:nth-child(1) p": "Atuação em produto digital com Angular, HTML, CSS e JavaScript, evoluindo interfaces usadas por clientes reais.",
+            "#sobre .card:nth-child(1) .badge:nth-child(3)": "Produto digital",
+            "#sobre .card:nth-child(2) h3": "SaaS em produção",
+            "#sobre .card:nth-child(2) p": "Criação do Nexo, plataforma real para escolas, com gestão de alunos, cobranças, inadimplência e comunicação integrada.",
+            "#sobre .card:nth-child(3) h3": "IA com critério",
+            "#sobre .card:nth-child(3) p": "Uso IA como apoio para arquitetura, revisão técnica, QA e documentação, sempre com validação humana e processo.",
+            "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentação",
+            "#experiencia .section-kicker": "Trajetória",
+            "#experiencia h2": "Experiência",
+            "#experiencia .section-head p": "Base profissional em produto digital e prática real construindo um SaaS de ponta a ponta.",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch\nAssistente de Desenvolvimento Frontend",
+            "#experiencia .timeline-item:nth-child(1) h3": "Desenvolvimento frontend",
+            "#experiencia .timeline-item:nth-child(1) p": "Desenvolvimento e evolução de interfaces em Angular, HTML, SCSS e JavaScript, contribuindo com correções, melhorias visuais e experiência do usuário na inChurch, líder em tecnologia para igrejas.",
+            "#experiencia .timeline-item:nth-child(1) .badge:nth-child(3)": "Produto digital",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nProjeto pessoal",
+            "#experiencia .timeline-item:nth-child(2) h3": "SaaS multi-tenant para gestão e pagamentos",
+            "#experiencia .timeline-item:nth-child(2) p": "Desenvolvimento de plataforma para escolas com gestão de alunos, cobranças, assinaturas, inadimplência, WhatsApp, Mercado Pago, segurança por tenant e operação em produção.",
+            "#nexo .section-kicker": "Projeto principal",
+            "#nexo h2": "Nexo",
+            "#nexo .section-head p": "Case principal: um SaaS multi-tenant que reúne gestão de alunos, cobranças, inadimplência e comunicação em uma operação real.",
+            "#nexo .panel-header span:last-child": "pedagogia-relatorios.png",
+            "#nexo .card h3": "O que esse projeto prova",
+            "#nexo .card > p": "O Nexo reúne frontend, UX, métricas, segurança e regras de negócio. A interface foi pensada para transformar informação operacional em algo claro, visual e acionável para escolas.",
+            ".highlight-grid .highlight:nth-child(1) span": "alunos gerenciados",
+            ".highlight-grid .highlight:nth-child(2) span": "em cobranças acompanhadas",
+            ".highlight-grid .highlight:nth-child(3) span": "isolamento por tenant",
+            "#skills .section-kicker": "Stack",
+            "#skills h2": "Stack principal",
+            "#skills .section-head p": "Tecnologias que sustentam minha atuação em frontend e o desenvolvimento do Nexo.",
+            ".stack-row:nth-child(1) h3": "Interface e produto",
+            ".stack-row:nth-child(1) .stack-title p": "Construção de telas, fluxos e experiências para produto digital.",
+            ".stack-row:nth-child(2) h3": "Dados e segurança",
+            ".stack-row:nth-child(2) .stack-title p": "Modelagem, autenticação e isolamento de dados para SaaS multi-tenant.",
+            ".stack-row:nth-child(3) h3": "Operação conectada",
+            ".stack-row:nth-child(3) .stack-title p": "Pagamentos, mensagens e automações que fecham o ciclo do produto.",
+            ".stack-row:nth-child(4) h3": "Qualidade e processo",
+            ".stack-row:nth-child(4) .stack-title p": "Validação técnica, ambiente seguro de mudança e uso criterioso de IA.",
+            ".stack-row:nth-child(4) .stack-tools li:nth-child(6)": "Documentação",
+            "#contato .section-kicker": "Contato",
+            "#contato h2": "Vamos conversar sobre frontend?",
+            "#contato .contact p": "Estou aberto a oportunidades como Frontend Developer em times que valorizam interface bem construída, clareza de produto e responsabilidade técnica.",
+            "#contato .actions a:nth-child(4)": "E-mail",
+            ".small": "Tudo o que fizerem, façam de todo o coração, como para o Senhor, não para os homens. Colossenses 3:23."
+          },
+          html: {
+            ".eyebrow": "<span class=\"terminal-dot\"></span> Frontend Developer | React, TypeScript, Angular",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Assistente de Desenvolvimento Frontend",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Projeto pessoal",
+            "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Arquitetura multi-tenant com <code>organization_id</code> e Row Level Security no Supabase/Postgres.</span>",
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Integração com Mercado Pago para pagamento avulso, PIX, assinaturas recorrentes e cobrança mensal.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes e reconciliação de cobranças para reduzir falsos inadimplentes.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financeiros para esperado, carteira e inadimplência com maior controle operacional.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Integração com WhatsApp via Evolution API para mensagens, broadcasts e alertas.</span>",
+            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>Desenvolvimento assistido por IA com revisão técnica, testes e documentação para acelerar sem abrir mão de qualidade.</span>"
+          },
+          attrs: {
+            "nav": { "aria-label": "Navegação principal" },
+            ".brand": { "aria-label": "Início" },
+            ".lang-switch": { "aria-label": "Selecionar idioma" },
+            ".hero .panel": { "aria-label": "Preview do Nexo" },
+            ".hero-shot img": { "alt": "Mock do dashboard do Nexo" },
+            ".mock-image": { "alt": "Tela de relatórios de pedagogia do Nexo com métricas, gráficos e médias por dimensão" }
+          }
+        },
+        en: {
+          lang: "en",
+          title: "Rafael Andrade Silva | Frontend Developer",
+          description: "Portfolio of Rafael Andrade Silva, Frontend Developer experienced in React, TypeScript, Angular, digital products, SaaS, Supabase, and payments.",
+          text: {
+            ".nav-links a:nth-child(1)": "About",
+            ".nav-links a:nth-child(2)": "Experience",
+            ".nav-links a:nth-child(3)": "Project",
+            ".nav-links a:nth-child(4)": "Stack",
+            ".nav-links a:nth-child(5)": "Contact",
+            ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
+            ".hero h1": "Frontend Developer turning product, data, and operations into clear interfaces.",
+            ".hero .lead": "I am Rafael Andrade Silva. I work on frontend for digital products at inChurch and built Nexo, a real SaaS for sports school management with students, billing, payments, WhatsApp, and multi-tenant security.",
+            ".hero .actions .btn-primary": "View main project",
+            ".hero .actions .btn-secondary": "Message me on LinkedIn",
+            ".hero .panel-header span:last-child": "project preview",
+            ".hero-caption .mini-stat:nth-child(1) span": "students in operation",
+            ".hero-caption .mini-stat:nth-child(2) span": "billing tracked",
+            ".hero-caption .mini-stat:nth-child(3) strong": "Real SaaS",
+            ".hero-caption .mini-stat:nth-child(3) span": "payments + WhatsApp",
+            "#sobre .section-kicker": "Profile",
+            "#sobre h2": "Frontend with product, data, and real operations context.",
+            "#sobre .section-head p": "My foundation is building and evolving interfaces for digital products. My edge is understanding what happens after the screen: business rules, financial data, security, and the operator's routine.",
+            "#sobre .card:nth-child(1) h3": "Professional experience",
+            "#sobre .card:nth-child(1) p": "Work on digital products with Angular, HTML, CSS, and JavaScript, evolving interfaces used by real customers.",
+            "#sobre .card:nth-child(1) .badge:nth-child(3)": "Digital product",
+            "#sobre .card:nth-child(2) h3": "SaaS in production",
+            "#sobre .card:nth-child(2) p": "Creation of Nexo, a real platform for schools with student management, billing, delinquency tracking, and integrated communication.",
+            "#sobre .card:nth-child(3) h3": "AI with judgment",
+            "#sobre .card:nth-child(3) p": "I use AI to support architecture, technical review, QA, and documentation, always with human validation and process.",
+            "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentation",
+            "#experiencia .section-kicker": "Track record",
+            "#experiencia h2": "Experience",
+            "#experiencia .section-head p": "Professional foundation in digital products plus hands-on practice building a SaaS end to end.",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch\nFrontend Development Assistant",
+            "#experiencia .timeline-item:nth-child(1) h3": "Frontend development",
+            "#experiencia .timeline-item:nth-child(1) p": "Development and evolution of interfaces with Angular, HTML, SCSS, and JavaScript, contributing fixes, visual improvements, and user experience work at inChurch, a technology leader for churches.",
+            "#experiencia .timeline-item:nth-child(1) .badge:nth-child(3)": "Digital product",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nPersonal project",
+            "#experiencia .timeline-item:nth-child(2) h3": "Multi-tenant SaaS for management and payments",
+            "#experiencia .timeline-item:nth-child(2) p": "Development of a platform for schools with student management, billing, subscriptions, delinquency tracking, WhatsApp, Mercado Pago, tenant security, and production operations.",
+            "#nexo .section-kicker": "Main project",
+            "#nexo h2": "Nexo",
+            "#nexo .section-head p": "Main case: a multi-tenant SaaS that brings student management, billing, delinquency tracking, and communication into a real operation.",
+            "#nexo .panel-header span:last-child": "pedagogy-reports.png",
+            "#nexo .card h3": "What this project proves",
+            "#nexo .card > p": "Nexo brings together frontend, UX, metrics, security, and business rules. The interface was designed to turn operational information into something clear, visual, and actionable for schools.",
+            ".highlight-grid .highlight:nth-child(1) span": "students managed",
+            ".highlight-grid .highlight:nth-child(2) span": "in billing tracked",
+            ".highlight-grid .highlight:nth-child(3) span": "tenant isolation",
+            "#skills .section-kicker": "Stack",
+            "#skills h2": "Core stack",
+            "#skills .section-head p": "Technologies that support my frontend work and the development of Nexo.",
+            ".stack-row:nth-child(1) h3": "Interface and product",
+            ".stack-row:nth-child(1) .stack-title p": "Building screens, flows, and experiences for digital products.",
+            ".stack-row:nth-child(2) h3": "Data and security",
+            ".stack-row:nth-child(2) .stack-title p": "Modeling, authentication, and data isolation for multi-tenant SaaS.",
+            ".stack-row:nth-child(3) h3": "Connected operations",
+            ".stack-row:nth-child(3) .stack-title p": "Payments, messaging, and automations that complete the product loop.",
+            ".stack-row:nth-child(4) h3": "Quality and process",
+            ".stack-row:nth-child(4) .stack-title p": "Technical validation, safe change environments, and careful use of AI.",
+            ".stack-row:nth-child(4) .stack-tools li:nth-child(6)": "Documentation",
+            "#contato .section-kicker": "Contact",
+            "#contato h2": "Let's talk frontend?",
+            "#contato .contact p": "I am open to Frontend Developer opportunities in teams that value well-built interfaces, product clarity, and technical responsibility.",
+            "#contato .actions a:nth-child(4)": "Email",
+            ".small": "Whatever you do, work at it with all your heart, as working for the Lord, not for human masters. Colossians 3:23."
+          },
+          html: {
+            ".eyebrow": "<span class=\"terminal-dot\"></span> Frontend Developer | React, TypeScript, Angular",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Frontend Development Assistant",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Personal project",
+            "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Multi-tenant architecture with <code>organization_id</code> and Row Level Security in Supabase/Postgres.</span>",
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Mercado Pago integration for one-time payments, PIX, recurring subscriptions, and monthly billing.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Idempotent webhooks and billing reconciliation to reduce false delinquency signals.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>Financial KPIs for expected revenue, receivables, and delinquency with stronger operational control.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>WhatsApp integration via Evolution API for messages, broadcasts, and alerts.</span>",
+            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>AI-assisted development with technical review, tests, and documentation to move faster without lowering quality.</span>"
+          },
+          attrs: {
+            "nav": { "aria-label": "Main navigation" },
+            ".brand": { "aria-label": "Home" },
+            ".lang-switch": { "aria-label": "Select language" },
+            ".hero .panel": { "aria-label": "Nexo preview" },
+            ".hero-shot img": { "alt": "Nexo dashboard mockup" },
+            ".mock-image": { "alt": "Nexo pedagogy reports screen with metrics, charts, and averages by dimension" }
+          }
+        },
+        es: {
+          lang: "es",
+          title: "Rafael Andrade Silva | Frontend Developer",
+          description: "Portafolio de Rafael Andrade Silva, Frontend Developer con experiencia en React, TypeScript, Angular, producto digital, SaaS, Supabase y pagos.",
+          text: {
+            ".nav-links a:nth-child(1)": "Sobre mí",
+            ".nav-links a:nth-child(2)": "Experiencia",
+            ".nav-links a:nth-child(3)": "Proyecto",
+            ".nav-links a:nth-child(4)": "Stack",
+            ".nav-links a:nth-child(5)": "Contacto",
+            ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
+            ".hero h1": "Frontend Developer que convierte producto, datos y operación en interfaces claras.",
+            ".hero .lead": "Soy Rafael Andrade Silva. Trabajo con frontend en productos digitales en inChurch y construí Nexo, un SaaS real para gestión deportiva con alumnos, cobros, pagos, WhatsApp y seguridad multi-tenant.",
+            ".hero .actions .btn-primary": "Ver proyecto principal",
+            ".hero .actions .btn-secondary": "Escríbeme en LinkedIn",
+            ".hero .panel-header span:last-child": "preview del proyecto",
+            ".hero-caption .mini-stat:nth-child(1) span": "alumnos en operación",
+            ".hero-caption .mini-stat:nth-child(2) span": "cobros monitoreados",
+            ".hero-caption .mini-stat:nth-child(3) strong": "SaaS real",
+            ".hero-caption .mini-stat:nth-child(3) span": "pagos + WhatsApp",
+            "#sobre .section-kicker": "Perfil",
+            "#sobre h2": "Frontend con contexto de producto, datos y operación real.",
+            "#sobre .section-head p": "Mi base es construir y evolucionar interfaces para productos digitales. Mi diferencial es entender lo que ocurre después de la pantalla: reglas de negocio, datos financieros, seguridad y rutina operativa.",
+            "#sobre .card:nth-child(1) h3": "Experiencia profesional",
+            "#sobre .card:nth-child(1) p": "Trabajo en producto digital con Angular, HTML, CSS y JavaScript, evolucionando interfaces usadas por clientes reales.",
+            "#sobre .card:nth-child(1) .badge:nth-child(3)": "Producto digital",
+            "#sobre .card:nth-child(2) h3": "SaaS en producción",
+            "#sobre .card:nth-child(2) p": "Creación de Nexo, plataforma real para escuelas con gestión de alumnos, cobros, morosidad y comunicación integrada.",
+            "#sobre .card:nth-child(3) h3": "IA con criterio",
+            "#sobre .card:nth-child(3) p": "Uso IA como apoyo para arquitectura, revisión técnica, QA y documentación, siempre con validación humana y proceso.",
+            "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentación",
+            "#experiencia .section-kicker": "Trayectoria",
+            "#experiencia h2": "Experiencia",
+            "#experiencia .section-head p": "Base profesional en producto digital y práctica real construyendo un SaaS de punta a punta.",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch\nAsistente de Desarrollo Frontend",
+            "#experiencia .timeline-item:nth-child(1) h3": "Desarrollo frontend",
+            "#experiencia .timeline-item:nth-child(1) p": "Desarrollo y evolución de interfaces en Angular, HTML, SCSS y JavaScript, contribuyendo con correcciones, mejoras visuales y experiencia de usuario en inChurch, líder en tecnología para iglesias.",
+            "#experiencia .timeline-item:nth-child(1) .badge:nth-child(3)": "Producto digital",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nProyecto personal",
+            "#experiencia .timeline-item:nth-child(2) h3": "SaaS multi-tenant para gestión y pagos",
+            "#experiencia .timeline-item:nth-child(2) p": "Desarrollo de una plataforma para escuelas con gestión de alumnos, cobros, suscripciones, morosidad, WhatsApp, Mercado Pago, seguridad por tenant y operación en producción.",
+            "#nexo .section-kicker": "Proyecto principal",
+            "#nexo h2": "Nexo",
+            "#nexo .section-head p": "Caso principal: un SaaS multi-tenant que reúne gestión de alumnos, cobros, morosidad y comunicación en una operación real.",
+            "#nexo .panel-header span:last-child": "reportes-pedagogia.png",
+            "#nexo .card h3": "Lo que este proyecto demuestra",
+            "#nexo .card > p": "Nexo reúne frontend, UX, métricas, seguridad y reglas de negocio. La interfaz fue pensada para convertir información operativa en algo claro, visual y accionable para escuelas.",
+            ".highlight-grid .highlight:nth-child(1) span": "alumnos gestionados",
+            ".highlight-grid .highlight:nth-child(2) span": "en cobros monitoreados",
+            ".highlight-grid .highlight:nth-child(3) span": "aislamiento por tenant",
+            "#skills .section-kicker": "Stack",
+            "#skills h2": "Stack principal",
+            "#skills .section-head p": "Tecnologías que sostienen mi trabajo en frontend y el desarrollo de Nexo.",
+            ".stack-row:nth-child(1) h3": "Interfaz y producto",
+            ".stack-row:nth-child(1) .stack-title p": "Construcción de pantallas, flujos y experiencias para productos digitales.",
+            ".stack-row:nth-child(2) h3": "Datos y seguridad",
+            ".stack-row:nth-child(2) .stack-title p": "Modelado, autenticación y aislamiento de datos para SaaS multi-tenant.",
+            ".stack-row:nth-child(3) h3": "Operación conectada",
+            ".stack-row:nth-child(3) .stack-title p": "Pagos, mensajes y automatizaciones que completan el ciclo del producto.",
+            ".stack-row:nth-child(4) h3": "Calidad y proceso",
+            ".stack-row:nth-child(4) .stack-title p": "Validación técnica, entorno seguro de cambio y uso criterioso de IA.",
+            ".stack-row:nth-child(4) .stack-tools li:nth-child(6)": "Documentación",
+            "#contato .section-kicker": "Contacto",
+            "#contato h2": "¿Hablamos de frontend?",
+            "#contato .contact p": "Estoy abierto a oportunidades como Frontend Developer en equipos que valoran interfaces bien construidas, claridad de producto y responsabilidad técnica.",
+            "#contato .actions a:nth-child(4)": "Email",
+            ".small": "Todo lo que hagan, háganlo de corazón, como para el Señor y no para los hombres. Colosenses 3:23."
+          },
+          html: {
+            ".eyebrow": "<span class=\"terminal-dot\"></span> Frontend Developer | React, TypeScript, Angular",
+            "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Asistente de Desarrollo Frontend",
+            "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Proyecto personal",
+            "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Arquitectura multi-tenant con <code>organization_id</code> y Row Level Security en Supabase/Postgres.</span>",
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Integración con Mercado Pago para pagos únicos, PIX, suscripciones recurrentes y cobro mensual.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes y conciliación de cobros para reducir falsos casos de morosidad.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financieros para ingreso esperado, cartera y morosidad con mayor control operativo.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Integración con WhatsApp vía Evolution API para mensajes, broadcasts y alertas.</span>",
+            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>Desarrollo asistido por IA con revisión técnica, pruebas y documentación para acelerar sin perder calidad.</span>"
+          },
+          attrs: {
+            "nav": { "aria-label": "Navegación principal" },
+            ".brand": { "aria-label": "Inicio" },
+            ".lang-switch": { "aria-label": "Seleccionar idioma" },
+            ".hero .panel": { "aria-label": "Preview de Nexo" },
+            ".hero-shot img": { "alt": "Mock del dashboard de Nexo" },
+            ".mock-image": { "alt": "Pantalla de reportes pedagógicos de Nexo con métricas, gráficos y promedios por dimensión" }
+          }
+        }
+      };
+
+      const metaDescription = document.querySelector("meta[name='description']");
+      const languageButtons = [...document.querySelectorAll(".lang-switch button")];
+
+      const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = value;
+      };
+
+      const setHtml = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element) element.innerHTML = value;
+      };
+
+      const setAttrs = (selector, attrs) => {
+        const element = document.querySelector(selector);
+        if (!element) return;
+        Object.entries(attrs).forEach(([name, value]) => element.setAttribute(name, value));
+      };
+
+      const applyLanguage = (lang) => {
+        const current = translations[lang] || translations.pt;
+        document.documentElement.lang = current.lang;
+        document.title = current.title;
+        if (metaDescription) metaDescription.setAttribute("content", current.description);
+
+        Object.entries(current.text).forEach(([selector, value]) => setText(selector, value));
+        Object.entries(current.html).forEach(([selector, value]) => setHtml(selector, value));
+        Object.entries(current.attrs).forEach(([selector, attrs]) => setAttrs(selector, attrs));
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.lang === lang;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try {
+          localStorage.setItem("preferred-language", lang);
+        } catch {}
+      };
+
+      const getInitialLanguage = () => {
+        try {
+          const saved = localStorage.getItem("preferred-language");
+          if (translations[saved]) return saved;
+        } catch {}
+
+        return "pt";
+      };
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+      });
+
+      applyLanguage(getInitialLanguage());
+
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const revealItems = [...document.querySelectorAll("main > section, footer .contact")];
 
