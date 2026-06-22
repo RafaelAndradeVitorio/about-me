@@ -533,6 +533,160 @@
       color: var(--text);
     }
 
+    .side-projects {
+      margin-bottom: 34px;
+    }
+
+    .side-projects-head {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(250px, .5fr);
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .side-projects-head h3 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+    }
+
+    .side-projects-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .side-project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .side-project {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+      transition: transform .34s cubic-bezier(.22, 1, .36, 1), border-color .3s ease, background .3s ease;
+    }
+
+    .side-project:hover {
+      transform: translateY(-6px);
+      border-color: oklch(69% 0.12 48 / 0.30);
+      background: var(--surface-strong);
+    }
+
+    .project-shot {
+      display: block;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+      transition: transform .7s cubic-bezier(.22, 1, .36, 1), filter .35s ease;
+    }
+
+    .side-project:hover .project-shot img {
+      transform: scale(1.04);
+      filter: saturate(1.04) contrast(1.03);
+    }
+
+    .project-body {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      flex: 1;
+    }
+
+    .project-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--orange-soft);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .project-type::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 4px oklch(69% 0.12 48 / 0.12);
+    }
+
+    .side-project h4 {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+    }
+
+    .side-project p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .project-tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: oklch(80% 0.018 250);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .project-tech-list li::before {
+      content: "/";
+      margin-right: 7px;
+      color: var(--orange);
+      font-family: var(--mono);
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-self: end;
+      margin-top: auto;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 760;
+      transition: transform .24s ease, border-color .24s ease, background .24s ease;
+    }
+
+    .project-link:hover {
+      transform: translateY(-2px);
+      border-color: oklch(69% 0.12 48 / 0.36);
+      background: oklch(69% 0.12 48 / 0.10);
+    }
+
     .check {
       flex: 0 0 22px;
       width: 22px;
@@ -735,6 +889,8 @@
       .grid-2,
       .grid-3,
       .showcase,
+      .side-projects-head,
+      .side-project-grid,
       .contact,
       .timeline-item {
         grid-template-columns: 1fr;
@@ -789,7 +945,7 @@
       <div class="nav-links">
         <a href="#sobre">Sobre</a>
         <a href="#experiencia">Experiência</a>
-        <a href="#nexo">Projeto</a>
+        <a href="#nexo">Projetos</a>
         <a href="#skills">Stack</a>
         <a href="#contato">Contato</a>
       </div>
@@ -814,7 +970,7 @@
         </p>
 
         <div class="actions">
-          <a class="btn btn-primary" href="#nexo">Ver projeto principal</a>
+          <a class="btn btn-primary" href="#nexo">Ver projetos</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/rafael-andrade-vitorio/" target="_blank" rel="noopener noreferrer">Falar comigo no LinkedIn</a>
         </div>
       </div>
@@ -935,15 +1091,82 @@
 
     <section id="nexo">
       <div class="section-head">
-        <div class="section-kicker">Projeto principal</div>
-        <h2>Nexo</h2>
+        <div class="section-kicker">Projetos selecionados</div>
+        <h2>Projetos em produção</h2>
         <p>
-          Case principal: um SaaS multi-tenant que reúne gestão de alunos, cobranças,
-          inadimplência e comunicação em uma operação real.
+          Uma seleção de interfaces publicadas que mostram produto real, experiência visual e organização de informação.
         </p>
       </div>
 
-      <div class="showcase">
+      <div class="side-projects">
+        <div class="side-projects-head">
+          <h3>Produtos e interfaces entregues</h3>
+          <p>Do SaaS completo à landing page de evento e ao painel financeiro, cada projeto mostra um tipo diferente de problema resolvido.</p>
+        </div>
+
+        <div class="side-project-grid">
+          <article class="side-project">
+            <a class="project-shot" href="#nexo-case">
+              <img src="assets/showcase-pedagogia.png" alt="Tela de relatórios de pedagogia do Nexo com métricas e gráficos" loading="lazy" />
+            </a>
+            <div class="project-body">
+              <span class="project-type">SaaS multi-tenant</span>
+              <h4>Nexo</h4>
+              <p>Plataforma para gestão esportiva com alunos, cobranças, pagamentos, WhatsApp e segurança por tenant.</p>
+              <ul class="project-tech-list">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Supabase</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="#nexo-case">Ver case</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="side-project">
+            <a class="project-shot" href="https://comunidade-profetica-conf.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/conferencia-ibcb.png" alt="Hero da landing page Conferência Comunidade Profética" loading="lazy" />
+            </a>
+            <div class="project-body">
+              <span class="project-type">Evento publicado</span>
+              <h4>Conferência Comunidade Profética</h4>
+              <p>Landing page de evento com comunicação clara, chamada para inscrição e publicação em produção na Vercel.</p>
+              <ul class="project-tech-list">
+                <li>Landing page</li>
+                <li>Frontend</li>
+                <li>Vercel</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="https://comunidade-profetica-conf.vercel.app/" target="_blank" rel="noopener noreferrer">Ver online</a>
+                <a class="project-link" href="https://github.com/RafaelAndradeVitorio/conferenciaIbcb" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="side-project">
+            <a class="project-shot" href="https://painel-financeiro-do-crente.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/painel-financeiro.png" alt="Dashboard do Painel Financeiro do Crente com indicadores e gráficos" loading="lazy" />
+            </a>
+            <div class="project-body">
+              <span class="project-type">Painel financeiro</span>
+              <h4>Painel Financeiro do Crente</h4>
+              <p>Interface para organizar informações financeiras em um painel objetivo, com foco em leitura rápida e clareza visual.</p>
+              <ul class="project-tech-list">
+                <li>Dashboard</li>
+                <li>Frontend</li>
+                <li>Vercel</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="https://painel-financeiro-do-crente.vercel.app/" target="_blank" rel="noopener noreferrer">Ver online</a>
+                <a class="project-link" href="https://github.com/RafaelAndradeVitorio/Painel-Financeiro-do-Crente" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="nexo-case" class="showcase">
         <div class="panel">
           <div class="panel-header">
             <div class="traffic"><span></span><span></span><span></span></div>
@@ -990,6 +1213,7 @@
           </ul>
         </article>
       </div>
+
     </section>
 
     <section id="skills">
@@ -1098,13 +1322,13 @@
           text: {
             ".nav-links a:nth-child(1)": "Sobre",
             ".nav-links a:nth-child(2)": "Experiência",
-            ".nav-links a:nth-child(3)": "Projeto",
+            ".nav-links a:nth-child(3)": "Projetos",
             ".nav-links a:nth-child(4)": "Stack",
             ".nav-links a:nth-child(5)": "Contato",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer que transforma produto, dados e operação em interfaces claras.",
             ".hero .lead": "Sou Rafael Andrade Silva. Trabalho com frontend em produto digital na inChurch e construí o Nexo, um SaaS real para gestão esportiva com alunos, cobranças, pagamentos, WhatsApp e segurança multi-tenant.",
-            ".hero .actions .btn-primary": "Ver projeto principal",
+            ".hero .actions .btn-primary": "Ver projetos",
             ".hero .actions .btn-secondary": "Falar comigo no LinkedIn",
             ".hero-caption .mini-stat:nth-child(1) span": "alunos em operação",
             ".hero-caption .mini-stat:nth-child(2) span": "cobranças acompanhadas",
@@ -1131,17 +1355,40 @@
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nProjeto pessoal",
             "#experiencia .timeline-item:nth-child(2) h3": "SaaS multi-tenant para gestão e pagamentos",
             "#experiencia .timeline-item:nth-child(2) p": "Desenvolvimento de plataforma para escolas com gestão de alunos, cobranças, assinaturas, inadimplência, WhatsApp, Mercado Pago, segurança por tenant e operação em produção.",
-            "#nexo .section-kicker": "Projeto principal",
-            "#nexo h2": "Nexo",
-            "#nexo .section-head p": "Case principal: um SaaS multi-tenant que reúne gestão de alunos, cobranças, inadimplência e comunicação em uma operação real.",
+            "#nexo .section-kicker": "Projetos selecionados",
+            "#nexo h2": "Projetos em produção",
+            "#nexo .section-head p": "Uma seleção de interfaces publicadas que mostram produto real, experiência visual e organização de informação.",
             "#nexo .card h3": "O que esse projeto prova",
             "#nexo .card > p": "O Nexo reúne frontend, UX, métricas, segurança e regras de negócio. A interface foi pensada para transformar informação operacional em algo claro, visual e acionável para escolas.",
             ".highlight-grid .highlight:nth-child(1) span": "alunos gerenciados",
             ".highlight-grid .highlight:nth-child(2) span": "em cobranças acompanhadas",
             ".highlight-grid .highlight:nth-child(3) span": "isolamento por tenant",
+            ".side-projects-head h3": "Produtos e interfaces entregues",
+            ".side-projects-head p": "Do SaaS completo à landing page de evento e ao painel financeiro, cada projeto mostra um tipo diferente de problema resolvido.",
+            ".side-project:nth-child(1) .project-type": "SaaS multi-tenant",
+            ".side-project:nth-child(1) h4": "Nexo",
+            ".side-project:nth-child(1) p": "Plataforma para gestão esportiva com alunos, cobranças, pagamentos, WhatsApp e segurança por tenant.",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(1)": "React",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(2)": "TypeScript",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(3)": "Supabase",
+            ".side-project:nth-child(1) .project-actions a:nth-child(1)": "Ver case",
+            ".side-project:nth-child(2) .project-type": "Evento publicado",
+            ".side-project:nth-child(2) h4": "Conferência Comunidade Profética",
+            ".side-project:nth-child(2) p": "Landing page de evento com comunicação clara, chamada para inscrição e publicação em produção na Vercel.",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(1)": "Landing page",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(2) .project-actions a:nth-child(1)": "Ver online",
+            ".side-project:nth-child(3) .project-type": "Painel financeiro",
+            ".side-project:nth-child(3) h4": "Painel Financeiro do Crente",
+            ".side-project:nth-child(3) p": "Interface para organizar informações financeiras em um painel objetivo, com foco em leitura rápida e clareza visual.",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(1)": "Dashboard",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(3) .project-actions a:nth-child(1)": "Ver online",
             "#skills .section-kicker": "Stack",
             "#skills h2": "Stack principal",
-            "#skills .section-head p": "Tecnologias que sustentam minha atuação em frontend e o desenvolvimento do Nexo.",
+            "#skills .section-head p": "Tecnologias que sustentam minha atuação em frontend, produtos publicados e desenvolvimento de SaaS.",
             ".stack-row:nth-child(1) h3": "Interface e produto",
             ".stack-row:nth-child(1) .stack-title p": "Construção de telas, fluxos e experiências para produto digital.",
             ".stack-row:nth-child(2) h3": "Dados e segurança",
@@ -1174,7 +1421,10 @@
             ".lang-switch": { "aria-label": "Selecionar idioma" },
             ".hero .panel": { "aria-label": "Preview do Nexo" },
             ".hero-shot img": { "alt": "Mock do dashboard do Nexo" },
-            ".mock-image": { "alt": "Tela de relatórios de pedagogia do Nexo com métricas, gráficos e médias por dimensão" }
+            ".mock-image": { "alt": "Tela de relatórios de pedagogia do Nexo com métricas, gráficos e médias por dimensão" },
+            ".side-project:nth-child(1) .project-shot img": { "alt": "Tela de relatórios de pedagogia do Nexo com métricas e gráficos" },
+            ".side-project:nth-child(2) .project-shot img": { "alt": "Hero da landing page Conferência Comunidade Profética" },
+            ".side-project:nth-child(3) .project-shot img": { "alt": "Dashboard do Painel Financeiro do Crente com indicadores e gráficos" }
           }
         },
         en: {
@@ -1184,13 +1434,13 @@
           text: {
             ".nav-links a:nth-child(1)": "About",
             ".nav-links a:nth-child(2)": "Experience",
-            ".nav-links a:nth-child(3)": "Project",
+            ".nav-links a:nth-child(3)": "Projects",
             ".nav-links a:nth-child(4)": "Stack",
             ".nav-links a:nth-child(5)": "Contact",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer turning product, data, and operations into clear interfaces.",
             ".hero .lead": "I am Rafael Andrade Silva. I work on frontend for digital products at inChurch and built Nexo, a real SaaS for sports school management with students, billing, payments, WhatsApp, and multi-tenant security.",
-            ".hero .actions .btn-primary": "View main project",
+            ".hero .actions .btn-primary": "View projects",
             ".hero .actions .btn-secondary": "Message me on LinkedIn",
             ".hero .panel-header span:last-child": "project preview",
             ".hero-caption .mini-stat:nth-child(1) span": "students in operation",
@@ -1218,18 +1468,41 @@
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nPersonal project",
             "#experiencia .timeline-item:nth-child(2) h3": "Multi-tenant SaaS for management and payments",
             "#experiencia .timeline-item:nth-child(2) p": "Development of a platform for schools with student management, billing, subscriptions, delinquency tracking, WhatsApp, Mercado Pago, tenant security, and production operations.",
-            "#nexo .section-kicker": "Main project",
-            "#nexo h2": "Nexo",
-            "#nexo .section-head p": "Main case: a multi-tenant SaaS that brings student management, billing, delinquency tracking, and communication into a real operation.",
+            "#nexo .section-kicker": "Selected projects",
+            "#nexo h2": "Projects in production",
+            "#nexo .section-head p": "A selection of published interfaces showing real product work, visual experience, and information organization.",
             "#nexo .panel-header span:last-child": "pedagogy-reports.png",
             "#nexo .card h3": "What this project proves",
             "#nexo .card > p": "Nexo brings together frontend, UX, metrics, security, and business rules. The interface was designed to turn operational information into something clear, visual, and actionable for schools.",
             ".highlight-grid .highlight:nth-child(1) span": "students managed",
             ".highlight-grid .highlight:nth-child(2) span": "in billing tracked",
             ".highlight-grid .highlight:nth-child(3) span": "tenant isolation",
+            ".side-projects-head h3": "Delivered products and interfaces",
+            ".side-projects-head p": "From a full SaaS to an event landing page and a financial dashboard, each project shows a different kind of problem solved.",
+            ".side-project:nth-child(1) .project-type": "Multi-tenant SaaS",
+            ".side-project:nth-child(1) h4": "Nexo",
+            ".side-project:nth-child(1) p": "Sports management platform with students, billing, payments, WhatsApp, and tenant-level security.",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(1)": "React",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(2)": "TypeScript",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(3)": "Supabase",
+            ".side-project:nth-child(1) .project-actions a:nth-child(1)": "View case",
+            ".side-project:nth-child(2) .project-type": "Published event",
+            ".side-project:nth-child(2) h4": "Prophetic Community Conference",
+            ".side-project:nth-child(2) p": "Event landing page with clear communication, registration call to action, and production deployment on Vercel.",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(1)": "Landing page",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(2) .project-actions a:nth-child(1)": "Live site",
+            ".side-project:nth-child(3) .project-type": "Financial dashboard",
+            ".side-project:nth-child(3) h4": "Believer Financial Dashboard",
+            ".side-project:nth-child(3) p": "Interface for organizing financial information in a direct dashboard, focused on fast reading and visual clarity.",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(1)": "Dashboard",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(3) .project-actions a:nth-child(1)": "Live site",
             "#skills .section-kicker": "Stack",
             "#skills h2": "Core stack",
-            "#skills .section-head p": "Technologies that support my frontend work and the development of Nexo.",
+            "#skills .section-head p": "Technologies that support my frontend work, published products, and SaaS development.",
             ".stack-row:nth-child(1) h3": "Interface and product",
             ".stack-row:nth-child(1) .stack-title p": "Building screens, flows, and experiences for digital products.",
             ".stack-row:nth-child(2) h3": "Data and security",
@@ -1262,7 +1535,10 @@
             ".lang-switch": { "aria-label": "Select language" },
             ".hero .panel": { "aria-label": "Nexo preview" },
             ".hero-shot img": { "alt": "Nexo dashboard mockup" },
-            ".mock-image": { "alt": "Nexo pedagogy reports screen with metrics, charts, and averages by dimension" }
+            ".mock-image": { "alt": "Nexo pedagogy reports screen with metrics, charts, and averages by dimension" },
+            ".side-project:nth-child(1) .project-shot img": { "alt": "Nexo pedagogy reports screen with metrics and charts" },
+            ".side-project:nth-child(2) .project-shot img": { "alt": "Hero section of the Prophetic Community Conference landing page" },
+            ".side-project:nth-child(3) .project-shot img": { "alt": "Believer Financial Dashboard with indicators and charts" }
           }
         },
         es: {
@@ -1272,13 +1548,13 @@
           text: {
             ".nav-links a:nth-child(1)": "Sobre mí",
             ".nav-links a:nth-child(2)": "Experiencia",
-            ".nav-links a:nth-child(3)": "Proyecto",
+            ".nav-links a:nth-child(3)": "Proyectos",
             ".nav-links a:nth-child(4)": "Stack",
             ".nav-links a:nth-child(5)": "Contacto",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer que convierte producto, datos y operación en interfaces claras.",
             ".hero .lead": "Soy Rafael Andrade Silva. Trabajo con frontend en productos digitales en inChurch y construí Nexo, un SaaS real para gestión deportiva con alumnos, cobros, pagos, WhatsApp y seguridad multi-tenant.",
-            ".hero .actions .btn-primary": "Ver proyecto principal",
+            ".hero .actions .btn-primary": "Ver proyectos",
             ".hero .actions .btn-secondary": "Escríbeme en LinkedIn",
             ".hero .panel-header span:last-child": "preview del proyecto",
             ".hero-caption .mini-stat:nth-child(1) span": "alumnos en operación",
@@ -1306,18 +1582,41 @@
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo\nProyecto personal",
             "#experiencia .timeline-item:nth-child(2) h3": "SaaS multi-tenant para gestión y pagos",
             "#experiencia .timeline-item:nth-child(2) p": "Desarrollo de una plataforma para escuelas con gestión de alumnos, cobros, suscripciones, morosidad, WhatsApp, Mercado Pago, seguridad por tenant y operación en producción.",
-            "#nexo .section-kicker": "Proyecto principal",
-            "#nexo h2": "Nexo",
-            "#nexo .section-head p": "Caso principal: un SaaS multi-tenant que reúne gestión de alumnos, cobros, morosidad y comunicación en una operación real.",
+            "#nexo .section-kicker": "Proyectos seleccionados",
+            "#nexo h2": "Proyectos en producción",
+            "#nexo .section-head p": "Una selección de interfaces publicadas que muestran producto real, experiencia visual y organización de información.",
             "#nexo .panel-header span:last-child": "reportes-pedagogia.png",
             "#nexo .card h3": "Lo que este proyecto demuestra",
             "#nexo .card > p": "Nexo reúne frontend, UX, métricas, seguridad y reglas de negocio. La interfaz fue pensada para convertir información operativa en algo claro, visual y accionable para escuelas.",
             ".highlight-grid .highlight:nth-child(1) span": "alumnos gestionados",
             ".highlight-grid .highlight:nth-child(2) span": "en cobros monitoreados",
             ".highlight-grid .highlight:nth-child(3) span": "aislamiento por tenant",
+            ".side-projects-head h3": "Productos e interfaces entregadas",
+            ".side-projects-head p": "Del SaaS completo a la landing page de evento y al panel financiero, cada proyecto muestra un tipo diferente de problema resuelto.",
+            ".side-project:nth-child(1) .project-type": "SaaS multi-tenant",
+            ".side-project:nth-child(1) h4": "Nexo",
+            ".side-project:nth-child(1) p": "Plataforma para gestión deportiva con alumnos, cobros, pagos, WhatsApp y seguridad por tenant.",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(1)": "React",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(2)": "TypeScript",
+            ".side-project:nth-child(1) .project-tech-list li:nth-child(3)": "Supabase",
+            ".side-project:nth-child(1) .project-actions a:nth-child(1)": "Ver caso",
+            ".side-project:nth-child(2) .project-type": "Evento publicado",
+            ".side-project:nth-child(2) h4": "Conferencia Comunidad Profética",
+            ".side-project:nth-child(2) p": "Landing page de evento con comunicación clara, llamada a inscripción y publicación en producción en Vercel.",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(1)": "Landing page",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(2) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(2) .project-actions a:nth-child(1)": "Ver online",
+            ".side-project:nth-child(3) .project-type": "Panel financiero",
+            ".side-project:nth-child(3) h4": "Panel Financiero del Creyente",
+            ".side-project:nth-child(3) p": "Interfaz para organizar información financiera en un panel objetivo, con foco en lectura rápida y claridad visual.",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(1)": "Dashboard",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(2)": "Frontend",
+            ".side-project:nth-child(3) .project-tech-list li:nth-child(3)": "Vercel",
+            ".side-project:nth-child(3) .project-actions a:nth-child(1)": "Ver online",
             "#skills .section-kicker": "Stack",
             "#skills h2": "Stack principal",
-            "#skills .section-head p": "Tecnologías que sostienen mi trabajo en frontend y el desarrollo de Nexo.",
+            "#skills .section-head p": "Tecnologías que sostienen mi trabajo en frontend, productos publicados y desarrollo de SaaS.",
             ".stack-row:nth-child(1) h3": "Interfaz y producto",
             ".stack-row:nth-child(1) .stack-title p": "Construcción de pantallas, flujos y experiencias para productos digitales.",
             ".stack-row:nth-child(2) h3": "Datos y seguridad",
@@ -1350,7 +1649,10 @@
             ".lang-switch": { "aria-label": "Seleccionar idioma" },
             ".hero .panel": { "aria-label": "Preview de Nexo" },
             ".hero-shot img": { "alt": "Mock del dashboard de Nexo" },
-            ".mock-image": { "alt": "Pantalla de reportes pedagógicos de Nexo con métricas, gráficos y promedios por dimensión" }
+            ".mock-image": { "alt": "Pantalla de reportes pedagógicos de Nexo con métricas, gráficos y promedios por dimensión" },
+            ".side-project:nth-child(1) .project-shot img": { "alt": "Pantalla de reportes pedagógicos de Nexo con métricas y gráficos" },
+            ".side-project:nth-child(2) .project-shot img": { "alt": "Hero de la landing page Conferencia Comunidad Profética" },
+            ".side-project:nth-child(3) .project-shot img": { "alt": "Panel Financiero del Creyente con indicadores y gráficos" }
           }
         }
       };
