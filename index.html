@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rafael Andrade | Frontend Developer</title>
-  <meta name="description" content="Portfólio de Rafael Andrade, Frontend Developer com experiência em React, TypeScript, Angular, produto digital, SaaS, Supabase e pagamentos." />
+  <meta name="description" content="Portfólio de Rafael Andrade, Frontend Developer com experiência em React, TypeScript, Angular, AI-assisted engineering, SaaS, Supabase/RLS e pagamentos." />
   <style>
     :root {
       --bg: oklch(16% 0.018 250);
@@ -533,6 +533,81 @@
       color: var(--text);
     }
 
+    .ai-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .ai-principle {
+      padding: 28px;
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, oklch(69% 0.12 48 / 0.13), rgba(15, 23, 42, 0.72));
+      box-shadow: var(--shadow);
+    }
+
+    .ai-principle h3 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height: 1.04;
+      margin-bottom: 14px;
+    }
+
+    .ai-principle p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .agent-map {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(15, 23, 42, 0.70);
+      overflow: hidden;
+      box-shadow: 0 10px 34px rgba(0,0,0,.12);
+    }
+
+    .agent-row {
+      display: grid;
+      grid-template-columns: 62px minmax(160px, .62fr) 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 20px 22px;
+      border-top: 1px solid var(--line);
+      transition: transform .32s cubic-bezier(.22, 1, .36, 1), border-color .3s ease, background .3s ease;
+    }
+
+    .agent-row:first-child {
+      border-top: 0;
+    }
+
+    .agent-row:hover {
+      transform: translateX(6px);
+      background: var(--surface-soft);
+      border-color: oklch(69% 0.12 48 / 0.28);
+    }
+
+    .agent-code {
+      color: var(--orange);
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: .08em;
+    }
+
+    .agent-row h3 {
+      margin-bottom: 0;
+      font-size: 21px;
+      line-height: 1.12;
+    }
+
+    .agent-row p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
     .side-projects {
       margin-bottom: 34px;
     }
@@ -736,6 +811,52 @@
       margin-top: 4px;
     }
 
+    .case-study h3 {
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.04;
+      margin-bottom: 14px;
+    }
+
+    .case-study > p {
+      font-size: 17px;
+    }
+
+    .case-steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .case-step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface-soft);
+      transition: transform .28s ease, border-color .28s ease, background .28s ease;
+    }
+
+    .case-step:hover {
+      transform: translateY(-3px);
+      border-color: oklch(69% 0.12 48 / 0.34);
+      background: var(--surface-strong);
+    }
+
+    .case-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--orange-soft);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .case-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
     .stack-map {
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
@@ -889,6 +1010,7 @@
       .grid-2,
       .grid-3,
       .showcase,
+      .ai-layout,
       .side-projects-head,
       .side-project-grid,
       .contact,
@@ -899,7 +1021,14 @@
         grid-template-columns: 52px 1fr;
         gap: 12px 18px;
       }
+      .agent-row {
+        grid-template-columns: 48px 1fr;
+        gap: 10px 16px;
+      }
       .stack-tools {
+        grid-column: 2;
+      }
+      .agent-row p {
         grid-column: 2;
       }
       .hero {
@@ -946,6 +1075,7 @@
         <a href="#sobre">Sobre</a>
         <a href="#experiencia">Experiência</a>
         <a href="#nexo">Projetos</a>
+        <a href="#ai-workflow">IA</a>
         <a href="#skills">Stack</a>
         <a href="#contato">Contato</a>
       </div>
@@ -1037,13 +1167,68 @@
         <article class="card">
           <div class="card-icon">03</div>
           <h3>IA com critério</h3>
-          <p>Uso IA como apoio para arquitetura, revisão técnica, QA e documentação, sempre com validação humana e processo.</p>
+          <p>Uso IA como ambiente de apoio técnico para acelerar análise, revisão e validação, mantendo responsabilidade sobre decisões e implementação.</p>
           <div class="badge-row">
             <span class="badge green">QA</span>
             <span class="badge green">Code Review</span>
             <span class="badge green">Documentação</span>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section id="ai-workflow">
+      <div class="section-head">
+        <div class="section-kicker">AI workflow</div>
+        <h2>AI-Assisted Engineering Workflow</h2>
+        <p>
+          Uso IA como apoio técnico para acelerar desenvolvimento sem perder controle de arquitetura.
+          Trabalho com prompts estruturados, project rules, agentes especializados, revisão de segurança,
+          geração de testes, documentação e validação de decisões técnicas.
+        </p>
+      </div>
+
+      <div class="ai-layout">
+        <article class="ai-principle">
+          <h3>Velocidade com dono técnico claro.</h3>
+          <p>
+            A IA entra como ambiente de apoio: levanta hipóteses, pressiona trade-offs, amplia cobertura de testes
+            e ajuda a documentar fluxos. A responsabilidade por arquitetura, segurança, código e deploy continua comigo.
+          </p>
+          <div class="badge-row">
+            <span class="badge green">Structured prompts</span>
+            <span class="badge green">Project rules</span>
+            <span class="badge green">Human review</span>
+          </div>
+        </article>
+
+        <div class="agent-map">
+          <article class="agent-row">
+            <span class="agent-code">01</span>
+            <h3>Architecture Agent</h3>
+            <p>Revisão de estrutura, responsabilidades, contratos entre módulos e trade-offs antes da implementação.</p>
+          </article>
+          <article class="agent-row">
+            <span class="agent-code">02</span>
+            <h3>Security Agent</h3>
+            <p>Validação de RLS, exposição de PII, permissões por tenant e riscos em integrações externas.</p>
+          </article>
+          <article class="agent-row">
+            <span class="agent-code">03</span>
+            <h3>QA Agent</h3>
+            <p>Cenários de teste, regressões, fluxos críticos e validação de estados antes de publicar mudanças.</p>
+          </article>
+          <article class="agent-row">
+            <span class="agent-code">04</span>
+            <h3>Docs Agent</h3>
+            <p>Documentação técnica, decisões arquiteturais e registro de regras de negócio que precisam ser preservadas.</p>
+          </article>
+          <article class="agent-row">
+            <span class="agent-code">05</span>
+            <h3>Debug Agent</h3>
+            <p>Análise de incidentes, leitura de sintomas, hipóteses de correção e confirmação da causa raiz.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -1178,11 +1363,11 @@
           </div>
         </div>
 
-        <article class="card">
-          <h3>O que esse projeto prova</h3>
+        <article class="card case-study">
+          <h3>Case Study: Nexo — From Ambiguous Payment Flow to Reliable SaaS</h3>
           <p>
-            O Nexo reúne frontend, UX, métricas, segurança e regras de negócio. A interface foi pensada
-            para transformar informação operacional em algo claro, visual e acionável para escolas.
+            O Nexo transformou um fluxo financeiro sujeito a inconsistências em uma operação SaaS multi-tenant,
+            com segurança por organização, pagamentos integrados e leitura confiável de inadimplência.
           </p>
 
           <div class="highlight-grid">
@@ -1204,13 +1389,31 @@
             </div>
           </div>
 
+          <div class="case-steps">
+            <article class="case-step">
+              <strong>Problem</strong>
+              <p>Escolas precisavam controlar alunos, pagamentos, inadimplência e recorrência em uma rotina operacional simples.</p>
+            </article>
+            <article class="case-step">
+              <strong>Challenge</strong>
+              <p>Pagamentos avulsos, PIX, assinaturas, competências mensais e webhooks podiam gerar inconsistências e falsos inadimplentes.</p>
+            </article>
+            <article class="case-step">
+              <strong>Solution</strong>
+              <p>SaaS multi-tenant com React, TypeScript, Supabase, RLS, Mercado Pago, webhooks idempotentes e reconciliação financeira.</p>
+            </article>
+            <article class="case-step">
+              <strong>Impact</strong>
+              <p>250+ alunos e R$70k+ em cobranças acompanhadas, com maior controle financeiro e redução de falsos sinais de inadimplência.</p>
+            </article>
+          </div>
+
           <ul class="project-list">
             <li><span class="check">✓</span><span>Arquitetura multi-tenant com <code>organization_id</code> e Row Level Security no Supabase/Postgres.</span></li>
-            <li><span class="check">✓</span><span>Integração com Mercado Pago para pagamento avulso, PIX, assinaturas recorrentes e cobrança mensal.</span></li>
-            <li><span class="check">✓</span><span>Webhooks idempotentes e reconciliação de cobranças para reduzir falsos inadimplentes.</span></li>
-            <li><span class="check">✓</span><span>KPIs financeiros para esperado, carteira e inadimplência com maior controle operacional.</span></li>
-            <li><span class="check">✓</span><span>Integração com WhatsApp via Evolution API para mensagens, broadcasts e alertas.</span></li>
-            <li><span class="check">✓</span><span>Desenvolvimento assistido por IA com revisão técnica, testes e documentação para acelerar sem abrir mão de qualidade.</span></li>
+            <li><span class="check">✓</span><span>Mercado Pago integrado para pagamento avulso, PIX, assinaturas recorrentes e cobrança por competência mensal.</span></li>
+            <li><span class="check">✓</span><span>Webhooks idempotentes e reconciliação financeira para reduzir duplicidade, atraso de status e falsos inadimplentes.</span></li>
+            <li><span class="check">✓</span><span>KPIs financeiros para receita esperada, carteira, recebimentos e inadimplência com fonte de verdade operacional.</span></li>
+            <li><span class="check">✓</span><span>Uso de IA como apoio para revisar arquitetura, validar segurança, ampliar testes e documentar decisões técnicas.</span></li>
           </ul>
         </article>
       </div>
@@ -1319,13 +1522,14 @@
         pt: {
           lang: "pt-BR",
           title: "Rafael Andrade | Frontend Developer",
-          description: "Portfólio de Rafael Andrade, Frontend Developer com experiência em React, TypeScript, Angular, produto digital, SaaS, Supabase e pagamentos.",
+          description: "Portfólio de Rafael Andrade, Frontend Developer com experiência em React, TypeScript, Angular, AI-assisted engineering, SaaS, Supabase/RLS e pagamentos.",
           text: {
             ".nav-links a:nth-child(1)": "Sobre",
             ".nav-links a:nth-child(2)": "Experiência",
             ".nav-links a:nth-child(3)": "Projetos",
-            ".nav-links a:nth-child(4)": "Stack",
-            ".nav-links a:nth-child(5)": "Contato",
+            ".nav-links a:nth-child(4)": "IA",
+            ".nav-links a:nth-child(5)": "Stack",
+            ".nav-links a:nth-child(6)": "Contato",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer com foco em produto, clareza visual e entrega em produção.",
             ".hero .lead": "Sou Rafael Andrade. Construo interfaces para produto digital, dashboards e landing pages, conectando React, TypeScript, Angular e atenção real às regras de negócio. Minha experiência inclui atuação na inChurch, o SaaS Nexo e projetos publicados que mostram capacidade de tirar ideias do papel com qualidade.",
@@ -1346,8 +1550,18 @@
             "#sobre .card:nth-child(2) h3": "SaaS em produção",
             "#sobre .card:nth-child(2) p": "Criação do Nexo, plataforma real para escolas, com gestão de alunos, cobranças, inadimplência e comunicação integrada.",
             "#sobre .card:nth-child(3) h3": "IA com critério",
-            "#sobre .card:nth-child(3) p": "Uso IA como apoio para arquitetura, revisão técnica, QA e documentação, sempre com validação humana e processo.",
+            "#sobre .card:nth-child(3) p": "Uso IA como ambiente de apoio técnico para acelerar análise, revisão e validação, mantendo responsabilidade sobre decisões e implementação.",
             "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentação",
+            "#ai-workflow .section-kicker": "AI workflow",
+            "#ai-workflow h2": "AI-Assisted Engineering Workflow",
+            "#ai-workflow .section-head p": "Uso IA como apoio técnico para acelerar desenvolvimento sem perder controle de arquitetura. Trabalho com prompts estruturados, project rules, agentes especializados, revisão de segurança, geração de testes, documentação e validação de decisões técnicas.",
+            "#ai-workflow .ai-principle h3": "Velocidade com dono técnico claro.",
+            "#ai-workflow .ai-principle p": "A IA entra como ambiente de apoio: levanta hipóteses, pressiona trade-offs, amplia cobertura de testes e ajuda a documentar fluxos. A responsabilidade por arquitetura, segurança, código e deploy continua comigo.",
+            ".agent-row:nth-child(1) p": "Revisão de estrutura, responsabilidades, contratos entre módulos e trade-offs antes da implementação.",
+            ".agent-row:nth-child(2) p": "Validação de RLS, exposição de PII, permissões por tenant e riscos em integrações externas.",
+            ".agent-row:nth-child(3) p": "Cenários de teste, regressões, fluxos críticos e validação de estados antes de publicar mudanças.",
+            ".agent-row:nth-child(4) p": "Documentação técnica, decisões arquiteturais e registro de regras de negócio que precisam ser preservadas.",
+            ".agent-row:nth-child(5) p": "Análise de incidentes, leitura de sintomas, hipóteses de correção e confirmação da causa raiz.",
             "#experiencia .section-kicker": "Trajetória",
             "#experiencia h2": "Experiência",
             "#experiencia .section-head p": "Base profissional em produto digital e prática real construindo um SaaS de ponta a ponta.",
@@ -1361,11 +1575,15 @@
             "#nexo .section-kicker": "Projetos selecionados",
             "#nexo h2": "Projetos em produção",
             "#nexo .section-head p": "Uma seleção de interfaces publicadas que mostram produto real, experiência visual e organização de informação.",
-            "#nexo .card h3": "O que esse projeto prova",
-            "#nexo .card > p": "O Nexo reúne frontend, UX, métricas, segurança e regras de negócio. A interface foi pensada para transformar informação operacional em algo claro, visual e acionável para escolas.",
+            "#nexo .card h3": "Case Study: Nexo — From Ambiguous Payment Flow to Reliable SaaS",
+            "#nexo .card > p": "O Nexo transformou um fluxo financeiro sujeito a inconsistências em uma operação SaaS multi-tenant, com segurança por organização, pagamentos integrados e leitura confiável de inadimplência.",
             ".highlight-grid .highlight:nth-child(1) span": "alunos gerenciados",
             ".highlight-grid .highlight:nth-child(2) span": "em cobranças acompanhadas",
             ".highlight-grid .highlight:nth-child(3) span": "isolamento por tenant",
+            ".case-step:nth-child(1) p": "Escolas precisavam controlar alunos, pagamentos, inadimplência e recorrência em uma rotina operacional simples.",
+            ".case-step:nth-child(2) p": "Pagamentos avulsos, PIX, assinaturas, competências mensais e webhooks podiam gerar inconsistências e falsos inadimplentes.",
+            ".case-step:nth-child(3) p": "SaaS multi-tenant com React, TypeScript, Supabase, RLS, Mercado Pago, webhooks idempotentes e reconciliação financeira.",
+            ".case-step:nth-child(4) p": "250+ alunos e R$70k+ em cobranças acompanhadas, com maior controle financeiro e redução de falsos sinais de inadimplência.",
             ".side-projects-head h3": "Produtos e interfaces entregues",
             ".side-projects-head p": "Do SaaS completo à landing page de evento e ao painel financeiro, cada projeto mostra um tipo diferente de problema resolvido.",
             ".side-project:nth-child(1) .project-type": "SaaS multi-tenant",
@@ -1412,11 +1630,10 @@
             "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Assistente de Desenvolvimento Frontend",
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Projeto pessoal",
             "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Arquitetura multi-tenant com <code>organization_id</code> e Row Level Security no Supabase/Postgres.</span>",
-            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Integração com Mercado Pago para pagamento avulso, PIX, assinaturas recorrentes e cobrança mensal.</span>",
-            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes e reconciliação de cobranças para reduzir falsos inadimplentes.</span>",
-            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financeiros para esperado, carteira e inadimplência com maior controle operacional.</span>",
-            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Integração com WhatsApp via Evolution API para mensagens, broadcasts e alertas.</span>",
-            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>Desenvolvimento assistido por IA com revisão técnica, testes e documentação para acelerar sem abrir mão de qualidade.</span>"
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Mercado Pago integrado para pagamento avulso, PIX, assinaturas recorrentes e cobrança por competência mensal.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes e reconciliação financeira para reduzir duplicidade, atraso de status e falsos inadimplentes.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financeiros para receita esperada, carteira, recebimentos e inadimplência com fonte de verdade operacional.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Uso de IA como apoio para revisar arquitetura, validar segurança, ampliar testes e documentar decisões técnicas.</span>"
           },
           attrs: {
             "nav": { "aria-label": "Navegação principal" },
@@ -1433,13 +1650,14 @@
         en: {
           lang: "en",
           title: "Rafael Andrade | Frontend Developer",
-          description: "Portfolio of Rafael Andrade, Frontend Developer experienced in React, TypeScript, Angular, digital products, SaaS, Supabase, and payments.",
+          description: "Portfolio of Rafael Andrade, Frontend Developer experienced in React, TypeScript, Angular, AI-assisted engineering, SaaS, Supabase/RLS, and payments.",
           text: {
             ".nav-links a:nth-child(1)": "About",
             ".nav-links a:nth-child(2)": "Experience",
             ".nav-links a:nth-child(3)": "Projects",
-            ".nav-links a:nth-child(4)": "Stack",
-            ".nav-links a:nth-child(5)": "Contact",
+            ".nav-links a:nth-child(4)": "AI",
+            ".nav-links a:nth-child(5)": "Stack",
+            ".nav-links a:nth-child(6)": "Contact",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer focused on product, visual clarity, and production delivery.",
             ".hero .lead": "I am Rafael Andrade. I build interfaces for digital products, dashboards, and landing pages, connecting React, TypeScript, Angular, and real attention to business rules. My experience includes work at inChurch, the Nexo SaaS, and published projects that show I can turn ideas into solid shipped interfaces.",
@@ -1461,8 +1679,18 @@
             "#sobre .card:nth-child(2) h3": "SaaS in production",
             "#sobre .card:nth-child(2) p": "Creation of Nexo, a real platform for schools with student management, billing, delinquency tracking, and integrated communication.",
             "#sobre .card:nth-child(3) h3": "AI with judgment",
-            "#sobre .card:nth-child(3) p": "I use AI to support architecture, technical review, QA, and documentation, always with human validation and process.",
+            "#sobre .card:nth-child(3) p": "I use AI as a technical support environment to accelerate analysis, review, and validation while keeping ownership of decisions and implementation.",
             "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentation",
+            "#ai-workflow .section-kicker": "AI workflow",
+            "#ai-workflow h2": "AI-Assisted Engineering Workflow",
+            "#ai-workflow .section-head p": "I use AI as technical support to accelerate development without losing architectural control. I work with structured prompts, project rules, specialized agents, security review, test generation, documentation, and validation of technical decisions.",
+            "#ai-workflow .ai-principle h3": "Speed with clear technical ownership.",
+            "#ai-workflow .ai-principle p": "AI acts as a support environment: it raises hypotheses, pressures trade-offs, expands test coverage, and helps document flows. Responsibility for architecture, security, code, and deployment remains mine.",
+            ".agent-row:nth-child(1) p": "Review of structure, responsibilities, module contracts, and trade-offs before implementation.",
+            ".agent-row:nth-child(2) p": "Validation of RLS, PII exposure, tenant permissions, and risks in external integrations.",
+            ".agent-row:nth-child(3) p": "Test scenarios, regressions, critical flows, and state validation before shipping changes.",
+            ".agent-row:nth-child(4) p": "Technical documentation, architectural decisions, and business rules that need to be preserved.",
+            ".agent-row:nth-child(5) p": "Incident analysis, symptom reading, correction hypotheses, and root-cause confirmation.",
             "#experiencia .section-kicker": "Track record",
             "#experiencia h2": "Experience",
             "#experiencia .section-head p": "Professional foundation in digital products plus hands-on practice building a SaaS end to end.",
@@ -1477,11 +1705,15 @@
             "#nexo h2": "Projects in production",
             "#nexo .section-head p": "A selection of published interfaces showing real product work, visual experience, and information organization.",
             "#nexo .panel-header span:last-child": "pedagogy-reports.png",
-            "#nexo .card h3": "What this project proves",
-            "#nexo .card > p": "Nexo brings together frontend, UX, metrics, security, and business rules. The interface was designed to turn operational information into something clear, visual, and actionable for schools.",
+            "#nexo .card h3": "Case Study: Nexo — From Ambiguous Payment Flow to Reliable SaaS",
+            "#nexo .card > p": "Nexo turned a finance flow vulnerable to inconsistencies into a multi-tenant SaaS operation, with organization-level security, integrated payments, and reliable delinquency visibility.",
             ".highlight-grid .highlight:nth-child(1) span": "students managed",
             ".highlight-grid .highlight:nth-child(2) span": "in billing tracked",
             ".highlight-grid .highlight:nth-child(3) span": "tenant isolation",
+            ".case-step:nth-child(1) p": "Schools needed to control students, payments, delinquency, and recurrence in a simple operational routine.",
+            ".case-step:nth-child(2) p": "One-time payments, PIX, subscriptions, monthly competencies, and webhooks could generate inconsistencies and false delinquency signals.",
+            ".case-step:nth-child(3) p": "Multi-tenant SaaS with React, TypeScript, Supabase, RLS, Mercado Pago, idempotent webhooks, and financial reconciliation.",
+            ".case-step:nth-child(4) p": "250+ students and R$70k+ in billing tracked, with stronger financial control and fewer false delinquency signals.",
             ".side-projects-head h3": "Delivered products and interfaces",
             ".side-projects-head p": "From a full SaaS to an event landing page and a financial dashboard, each project shows a different kind of problem solved.",
             ".side-project:nth-child(1) .project-type": "Multi-tenant SaaS",
@@ -1528,11 +1760,10 @@
             "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Frontend Development Assistant",
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Personal project",
             "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Multi-tenant architecture with <code>organization_id</code> and Row Level Security in Supabase/Postgres.</span>",
-            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Mercado Pago integration for one-time payments, PIX, recurring subscriptions, and monthly billing.</span>",
-            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Idempotent webhooks and billing reconciliation to reduce false delinquency signals.</span>",
-            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>Financial KPIs for expected revenue, receivables, and delinquency with stronger operational control.</span>",
-            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>WhatsApp integration via Evolution API for messages, broadcasts, and alerts.</span>",
-            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>AI-assisted development with technical review, tests, and documentation to move faster without lowering quality.</span>"
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Mercado Pago integrated for one-time payments, PIX, recurring subscriptions, and monthly competency billing.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Idempotent webhooks and financial reconciliation to reduce duplication, delayed status, and false delinquency signals.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>Financial KPIs for expected revenue, receivables, collected payments, and delinquency from an operational source of truth.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>AI used as support for architecture review, security validation, broader tests, and technical decision documentation.</span>"
           },
           attrs: {
             "nav": { "aria-label": "Main navigation" },
@@ -1549,13 +1780,14 @@
         es: {
           lang: "es",
           title: "Rafael Andrade | Frontend Developer",
-          description: "Portafolio de Rafael Andrade, Frontend Developer con experiencia en React, TypeScript, Angular, producto digital, SaaS, Supabase y pagos.",
+          description: "Portafolio de Rafael Andrade, Frontend Developer con experiencia en React, TypeScript, Angular, AI-assisted engineering, SaaS, Supabase/RLS y pagos.",
           text: {
             ".nav-links a:nth-child(1)": "Sobre mí",
             ".nav-links a:nth-child(2)": "Experiencia",
             ".nav-links a:nth-child(3)": "Proyectos",
-            ".nav-links a:nth-child(4)": "Stack",
-            ".nav-links a:nth-child(5)": "Contacto",
+            ".nav-links a:nth-child(4)": "IA",
+            ".nav-links a:nth-child(5)": "Stack",
+            ".nav-links a:nth-child(6)": "Contacto",
             ".eyebrow": "Frontend Developer | React, TypeScript, Angular",
             ".hero h1": "Frontend Developer enfocado en producto, claridad visual y entrega en producción.",
             ".hero .lead": "Soy Rafael Andrade. Construyo interfaces para productos digitales, dashboards y landing pages, conectando React, TypeScript, Angular y atención real a reglas de negocio. Mi experiencia incluye trabajo en inChurch, el SaaS Nexo y proyectos publicados que muestran capacidad para convertir ideas en interfaces sólidas.",
@@ -1577,8 +1809,18 @@
             "#sobre .card:nth-child(2) h3": "SaaS en producción",
             "#sobre .card:nth-child(2) p": "Creación de Nexo, plataforma real para escuelas con gestión de alumnos, cobros, morosidad y comunicación integrada.",
             "#sobre .card:nth-child(3) h3": "IA con criterio",
-            "#sobre .card:nth-child(3) p": "Uso IA como apoyo para arquitectura, revisión técnica, QA y documentación, siempre con validación humana y proceso.",
+            "#sobre .card:nth-child(3) p": "Uso IA como entorno de apoyo técnico para acelerar análisis, revisión y validación, manteniendo responsabilidad sobre decisiones e implementación.",
             "#sobre .card:nth-child(3) .badge:nth-child(3)": "Documentación",
+            "#ai-workflow .section-kicker": "AI workflow",
+            "#ai-workflow h2": "AI-Assisted Engineering Workflow",
+            "#ai-workflow .section-head p": "Uso IA como apoyo técnico para acelerar el desarrollo sin perder control de arquitectura. Trabajo con prompts estructurados, project rules, agentes especializados, revisión de seguridad, generación de pruebas, documentación y validación de decisiones técnicas.",
+            "#ai-workflow .ai-principle h3": "Velocidad con dueño técnico claro.",
+            "#ai-workflow .ai-principle p": "La IA entra como entorno de apoyo: levanta hipótesis, presiona trade-offs, amplía cobertura de pruebas y ayuda a documentar flujos. La responsabilidad por arquitectura, seguridad, código y deploy sigue conmigo.",
+            ".agent-row:nth-child(1) p": "Revisión de estructura, responsabilidades, contratos entre módulos y trade-offs antes de la implementación.",
+            ".agent-row:nth-child(2) p": "Validación de RLS, exposición de PII, permisos por tenant y riesgos en integraciones externas.",
+            ".agent-row:nth-child(3) p": "Escenarios de prueba, regresiones, flujos críticos y validación de estados antes de publicar cambios.",
+            ".agent-row:nth-child(4) p": "Documentación técnica, decisiones arquitecturales y reglas de negocio que necesitan preservarse.",
+            ".agent-row:nth-child(5) p": "Análisis de incidentes, lectura de síntomas, hipótesis de corrección y confirmación de causa raíz.",
             "#experiencia .section-kicker": "Trayectoria",
             "#experiencia h2": "Experiencia",
             "#experiencia .section-head p": "Base profesional en producto digital y práctica real construyendo un SaaS de punta a punta.",
@@ -1593,11 +1835,15 @@
             "#nexo h2": "Proyectos en producción",
             "#nexo .section-head p": "Una selección de interfaces publicadas que muestran producto real, experiencia visual y organización de información.",
             "#nexo .panel-header span:last-child": "reportes-pedagogia.png",
-            "#nexo .card h3": "Lo que este proyecto demuestra",
-            "#nexo .card > p": "Nexo reúne frontend, UX, métricas, seguridad y reglas de negocio. La interfaz fue pensada para convertir información operativa en algo claro, visual y accionable para escuelas.",
+            "#nexo .card h3": "Case Study: Nexo — From Ambiguous Payment Flow to Reliable SaaS",
+            "#nexo .card > p": "Nexo transformó un flujo financiero sujeto a inconsistencias en una operación SaaS multi-tenant, con seguridad por organización, pagos integrados y lectura confiable de morosidad.",
             ".highlight-grid .highlight:nth-child(1) span": "alumnos gestionados",
             ".highlight-grid .highlight:nth-child(2) span": "en cobros monitoreados",
             ".highlight-grid .highlight:nth-child(3) span": "aislamiento por tenant",
+            ".case-step:nth-child(1) p": "Las escuelas necesitaban controlar alumnos, pagos, morosidad y recurrencia en una rutina operativa simple.",
+            ".case-step:nth-child(2) p": "Pagos únicos, PIX, suscripciones, competencias mensuales y webhooks podían generar inconsistencias y falsos casos de morosidad.",
+            ".case-step:nth-child(3) p": "SaaS multi-tenant con React, TypeScript, Supabase, RLS, Mercado Pago, webhooks idempotentes y conciliación financiera.",
+            ".case-step:nth-child(4) p": "250+ alumnos y R$70k+ en cobros monitoreados, con mayor control financiero y reducción de falsos signos de morosidad.",
             ".side-projects-head h3": "Productos e interfaces entregadas",
             ".side-projects-head p": "Del SaaS completo a la landing page de evento y al panel financiero, cada proyecto muestra un tipo diferente de problema resuelto.",
             ".side-project:nth-child(1) .project-type": "SaaS multi-tenant",
@@ -1644,11 +1890,10 @@
             "#experiencia .timeline-item:nth-child(1) .timeline-meta": "inChurch<br />Asistente de Desarrollo Frontend",
             "#experiencia .timeline-item:nth-child(2) .timeline-meta": "Nexo<br />Proyecto personal",
             "#nexo .project-list li:nth-child(1)": "<span class=\"check\">✓</span><span>Arquitectura multi-tenant con <code>organization_id</code> y Row Level Security en Supabase/Postgres.</span>",
-            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Integración con Mercado Pago para pagos únicos, PIX, suscripciones recurrentes y cobro mensual.</span>",
-            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes y conciliación de cobros para reducir falsos casos de morosidad.</span>",
-            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financieros para ingreso esperado, cartera y morosidad con mayor control operativo.</span>",
-            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Integración con WhatsApp vía Evolution API para mensajes, broadcasts y alertas.</span>",
-            "#nexo .project-list li:nth-child(6)": "<span class=\"check\">✓</span><span>Desarrollo asistido por IA con revisión técnica, pruebas y documentación para acelerar sin perder calidad.</span>"
+            "#nexo .project-list li:nth-child(2)": "<span class=\"check\">✓</span><span>Mercado Pago integrado para pagos únicos, PIX, suscripciones recurrentes y cobro por competencia mensual.</span>",
+            "#nexo .project-list li:nth-child(3)": "<span class=\"check\">✓</span><span>Webhooks idempotentes y conciliación financiera para reducir duplicidad, retraso de status y falsos casos de morosidad.</span>",
+            "#nexo .project-list li:nth-child(4)": "<span class=\"check\">✓</span><span>KPIs financieros para ingreso esperado, cartera, pagos recibidos y morosidad con fuente de verdad operativa.</span>",
+            "#nexo .project-list li:nth-child(5)": "<span class=\"check\">✓</span><span>Uso de IA como apoyo para revisar arquitectura, validar seguridad, ampliar pruebas y documentar decisiones técnicas.</span>"
           },
           attrs: {
             "nav": { "aria-label": "Navegación principal" },
