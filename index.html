@@ -538,6 +538,37 @@
       }
     }
 
+    .kicker {
+      grid-column: 1 / -1;
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .kicker::before {
+      content: "";
+      flex: none;
+      width: 26px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+
+    .kicker--light {
+      color: var(--on-accent);
+      opacity: 0.85;
+    }
+
+    .kicker--light::before {
+      background: var(--on-accent);
+    }
+
     /* Projects */
 
     .project {
@@ -1280,6 +1311,7 @@
 
     <section id="projetos" class="section wrap">
       <div class="section-head">
+        <p class="kicker" data-i18n="kickerWork">Portfólio</p>
         <h2 data-i18n="projectsTitle">Projetos no ar</h2>
         <p data-i18n="projectsLead">Cinco produtos publicados, cada um para um tipo de negócio. Veja o problema, o que foi construído e o resultado.</p>
       </div>
@@ -1413,6 +1445,7 @@
 
     <section id="depoimentos" class="section wrap">
       <div class="section-head">
+        <p class="kicker" data-i18n="kickerTesti">Depoimentos</p>
         <h2 data-i18n="testiTitle">Quem contratou, conta</h2>
         <p data-i18n="testiLead">Quem usa os produtos que eu construo, em palavras próprias.</p>
       </div>
@@ -1437,6 +1470,7 @@
 
     <section id="servicos" class="section wrap">
       <div class="section-head">
+        <p class="kicker" data-i18n="kickerServices">Serviços</p>
         <h2 data-i18n="servicesTitle">O que eu construo</h2>
         <p data-i18n="servicesLead">Três tipos de projeto que já entreguei do começo ao fim.</p>
       </div>
@@ -1477,6 +1511,7 @@
 
     <section id="processo" class="section wrap">
       <div class="section-head">
+        <p class="kicker" data-i18n="kickerProcess">Processo</p>
         <h2 data-i18n="processTitle">Como funciona</h2>
         <p data-i18n="processLead">Um processo curto, com você vendo o resultado desde o início.</p>
       </div>
@@ -1522,6 +1557,7 @@
           <figure class="portrait">
             <img src="assets/retrato.jpg" width="900" height="601" data-i18n-attr="alt:altPortrait" alt="Foto de Rafael Andrade" />
           </figure>
+          <p class="kicker" data-i18n="kickerAbout">Perfil</p>
           <h2 data-i18n="aboutTitle">Sobre mim</h2>
           <p data-i18n="aboutLead">Sou desenvolvedor e gosto de entender o que acontece depois da tela: a regra de negócio, o dado financeiro, a segurança e a rotina de quem usa o sistema todo dia. Trabalho há 4 anos na inChurch e construo produtos próprios como o Nexo.</p>
         </div>
@@ -1566,6 +1602,7 @@
 
     <section id="contato" class="contact-section wrap">
       <div class="contact">
+        <p class="kicker kicker--light" data-i18n="kickerContact">Contato</p>
         <h2 data-i18n="contactTitle">Tem um projeto em mente?</h2>
         <p class="contact-lead" data-i18n="contactLead">Escolha o tipo de projeto e me chame no WhatsApp. A mensagem já vai pronta, é só enviar.</p>
 
@@ -1661,6 +1698,7 @@
           kindConfShort: "Church events",
           kindPainelShort: "Personal finance",
           projectsTitle: "Live projects",
+          kickerWork: "Selected work",
           projectsLead: "Five published products, each for a different kind of business. See the problem, what was built, and the result.",
           kindNexo: "SaaS for sports schools",
           descNexo: "Platform for sports schools to manage students, monthly fees, billing, and late payments, with WhatsApp notifications.",
@@ -1678,6 +1716,7 @@
           linkCode: "Code on GitHub",
           navTestimonials: "Testimonials",
           testiTitle: "Clients in their own words",
+          kickerTesti: "Testimonials",
           testiLead: "What people who use the products I build say, in their own words.",
           testi1Quote: "Loved it, found it super practical for checking the gigs too.",
           testi1Name: "Event promoter",
@@ -1700,6 +1739,7 @@
           descPainel: "Dashboard to organize income, expenses, and balance, with charts that show the month at a glance.",
           altPainel: "Painel Financeiro do Crente with income, expenses, balance, and a monthly trend chart",
           servicesTitle: "What I build",
+          kickerServices: "Services",
           servicesLead: "Three kinds of projects I've delivered from start to finish.",
           s1Title: "Systems and SaaS",
           s1Text: "Platforms with login, permissions, payments, and protected data, built for your business to run on every day.",
@@ -1720,6 +1760,7 @@
           s3c: "Direct contact through WhatsApp",
           s3Example: "Like the Conference page and Balcão Digital",
           processTitle: "How it works",
+          kickerProcess: "Process",
           processLead: "A short process where you see results from the start.",
           p1Title: "Call and scope",
           p1Text: "You describe the problem. I come back with what goes into the first version, the timeline, and the price.",
@@ -1740,6 +1781,7 @@
           q5: "Debugging",
           q5Text: "Incident investigation until the root cause is confirmed.",
           aboutTitle: "About me",
+          kickerAbout: "Profile",
           aboutLead: "I'm a developer who cares about what happens behind the screen: the business rule, the financial data, security, and the daily routine of the people using the system. I've worked at inChurch for 4 years and build my own products like Nexo.",
           role1: "Frontend development assistant",
           period1: "2022 — present",
@@ -1754,6 +1796,7 @@
           t4: "Quality",
           t4Text: "Playwright, Vitest, staging, migrations, code review, documentation",
           contactTitle: "Have a project in mind?",
+          kickerContact: "Contact",
           contactLead: "Pick the type of project and message me on WhatsApp. The message is ready, just hit send.",
           choiceLegend: "What kind of project?",
           choiceSaas: "System or SaaS",
@@ -1792,6 +1835,7 @@
           kindConfShort: "Iglesia y eventos",
           kindPainelShort: "Finanzas personales",
           projectsTitle: "Proyectos en línea",
+          kickerWork: "Portafolio",
           projectsLead: "Cinco productos publicados, cada uno para un tipo de negocio. Mira el problema, lo que se construyó y el resultado.",
           kindNexo: "SaaS para escuelas deportivas",
           descNexo: "Plataforma para que escuelas deportivas gestionen alumnos, mensualidades, cobros y morosidad, con avisos por WhatsApp.",
@@ -1809,6 +1853,7 @@
           linkCode: "Código en GitHub",
           navTestimonials: "Testimonios",
           testiTitle: "Quienes contrataron, cuentan",
+          kickerTesti: "Testimonios",
           testiLead: "Lo que dicen quienes usan los productos que construyo, en sus propias palabras.",
           testi1Quote: "Me encantó, me pareció súper práctico para ver los trabajos también.",
           testi1Name: "Promotora de eventos",
@@ -1831,6 +1876,7 @@
           descPainel: "Panel para organizar ingresos, gastos y saldo, con gráficos que muestran la evolución del mes en pocos segundos.",
           altPainel: "Painel Financeiro do Crente con ingresos, gastos, saldo y gráfico de evolución mensual",
           servicesTitle: "Lo que construyo",
+          kickerServices: "Servicios",
           servicesLead: "Tres tipos de proyecto que ya entregué de principio a fin.",
           s1Title: "Sistemas y SaaS",
           s1Text: "Plataformas con login, permisos, pagos y datos protegidos, para que tu negocio opere todos los días.",
@@ -1851,6 +1897,7 @@
           s3c: "Contacto directo por WhatsApp",
           s3Example: "Como la Conferencia y Balcão Digital",
           processTitle: "Cómo funciona",
+          kickerProcess: "Proceso",
           processLead: "Un proceso corto, en el que ves el resultado desde el inicio.",
           p1Title: "Conversación y alcance",
           p1Text: "Me cuentas el problema. Te devuelvo lo que entra en la primera versión, con plazo y precio.",
@@ -1871,6 +1918,7 @@
           q5: "Depuración",
           q5Text: "Investigación de incidentes hasta confirmar la causa raíz.",
           aboutTitle: "Sobre mí",
+          kickerAbout: "Perfil",
           aboutLead: "Soy desarrollador y me gusta entender lo que pasa detrás de la pantalla: la regla de negocio, el dato financiero, la seguridad y la rutina de quien usa el sistema todos los días. Trabajo hace 4 años en inChurch y construyo productos propios como Nexo.",
           role1: "Asistente de desarrollo frontend",
           period1: "2022 — actualidad",
@@ -1885,6 +1933,7 @@
           t4: "Calidad",
           t4Text: "Playwright, Vitest, staging, migrations, code review, documentación",
           contactTitle: "¿Tienes un proyecto en mente?",
+          kickerContact: "Contacto",
           contactLead: "Elige el tipo de proyecto y escríbeme por WhatsApp. El mensaje ya va listo, solo tienes que enviarlo.",
           choiceLegend: "¿Qué tipo de proyecto?",
           choiceSaas: "Sistema o SaaS",
