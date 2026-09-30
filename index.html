@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rafael Andrade | Desenvolvedor frontend</title>
-  <meta name="description" content="Rafael Andrade, desenvolvedor frontend. Construo sistemas, SaaS, painéis e landing pages com React, TypeScript e Supabase, do escopo à publicação." />
+  <title>Rafael Andrade | Desenvolvedor de produtos</title>
+  <meta name="description" content="Rafael Andrade, desenvolvedor de produtos. Construo sistemas, SaaS, painéis e landing pages com React, TypeScript e Supabase, do escopo à publicação." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Rafael Andrade" />
+  <meta property="og:title" content="Rafael Andrade | Desenvolvedor de produtos" />
+  <meta property="og:description" content="Construo o sistema, o painel ou o site que o seu negócio precisa, e coloco no ar. 5 produtos publicados, incluindo um SaaS com 250+ alunos e R$70k+ em cobranças." />
+  <meta property="og:url" content="https://rafael-andrade-dev.vercel.app/" />
+  <meta property="og:image" content="https://rafael-andrade-dev.vercel.app/assets/showcase-pedagogia.png" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Painel do SaaS Nexo com relatórios e indicadores" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rafael Andrade | Desenvolvedor de produtos" />
+  <meta name="twitter:description" content="Construo o sistema, o painel ou o site que o seu negócio precisa, e coloco no ar." />
+  <meta name="twitter:image" content="https://rafael-andrade-dev.vercel.app/assets/showcase-pedagogia.png" />
   <meta name="theme-color" content="#f7f8fb" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -205,7 +219,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: oklch(98.6% 0.004 260 / 0.94);
+      background: oklch(98.6% 0.004 260 / 0.9);
+      -webkit-backdrop-filter: blur(14px) saturate(1.25);
+      backdrop-filter: blur(14px) saturate(1.25);
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s ease;
     }
@@ -680,6 +696,113 @@
       }
     }
 
+    /* Testimonials */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: start;
+      margin-top: clamp(36px, 5vw, 60px);
+    }
+
+    .testimonial {
+      margin: 0;
+    }
+
+    .testimonial blockquote {
+      font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+      line-height: 1.45;
+      letter-spacing: -0.015em;
+      font-weight: 500;
+      color: var(--ink);
+      text-wrap: pretty;
+    }
+
+    .testimonial blockquote::before {
+      content: "\201C";
+      display: block;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .testimonial:nth-child(2) {
+      margin-top: clamp(24px, 4vw, 56px);
+    }
+
+    .testimonial:nth-child(2) blockquote {
+      font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+      font-weight: 400;
+      color: var(--ink-2);
+    }
+
+    .testimonial figcaption {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .testimonial figcaption strong {
+      font-size: 0.95rem;
+    }
+
+    .testimonial figcaption span {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+    }
+
+    .testimonial.pending blockquote {
+      color: var(--ink-3);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial:nth-child(2) {
+        margin-top: 0;
+      }
+    }
+
+    /* About portrait, timeline periods, project notes */
+
+    .portrait {
+      margin: 0 0 28px;
+    }
+
+    .portrait img {
+      width: min(100%, 300px);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 22%;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+    }
+
+    .timeline .period {
+      margin-top: 2px;
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .project-note {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: var(--ink-2);
+    }
+
+    .project-note::before {
+      content: "— ";
+      color: var(--ink-3);
+    }
+
     /* Services */
 
     .services {
@@ -1085,6 +1208,7 @@
 
       <div class="nav-links">
         <a href="#projetos" data-i18n="navProjects">Projetos</a>
+        <a href="#depoimentos" data-i18n="navTestimonials">Depoimentos</a>
         <a href="#servicos" data-i18n="navServices">Serviços</a>
         <a href="#processo" data-i18n="navProcess">Processo</a>
         <a href="#sobre" data-i18n="navAbout">Sobre</a>
@@ -1109,7 +1233,7 @@
       <div class="intro">
         <p class="status" data-i18n="status">Aceitando novos projetos</p>
         <h1 data-i18n="heroTitle">Construo o sistema, o painel ou o site que o seu negócio precisa, e coloco no ar.</h1>
-        <p class="hero-lead" data-i18n="heroLead">Sou Rafael Andrade, desenvolvedor frontend. Cuido do caminho todo: entendo a regra do seu negócio, desenho telas claras e entrego o produto publicado, com pagamentos e dados seguros quando o projeto pede.</p>
+        <p class="hero-lead" data-i18n="heroLead">Sou Rafael Andrade, desenvolvedor. Há 4 anos trabalho com interfaces na inChurch e, em paralelo, tiro produtos do papel por conta própria: entendo a regra do seu negócio, desenho telas claras e entrego tudo publicado, com pagamentos e dados seguros quando o projeto pede.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" id="hero-whatsapp" href="https://wa.me/5521988574566" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.93 9.93 0 1 0 12.04 2Zm0 18.12a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.06.89.9-2.98-.2-.31a8.22 8.22 0 1 1 6.84 3.73Zm4.5-6.15c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.96-.14.17-.28.19-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2.04 4.77 4.77 0 0 0 1 2.53 10.9 10.9 0 0 0 4.18 3.7c1.56.67 2.17.73 2.95.61.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.15-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
@@ -1205,6 +1329,7 @@
             <p class="project-kind" data-i18n="kindConexao">Plataforma para agência de eventos</p>
             <h3>Conexão Urbana</h3>
             <p data-i18n="descConexao">Casting de promotores para eventos: eles enviam fotos e vídeos, a agência faz a curadoria e a marca aprova a seleção por um link seguro, sem precisar de login.</p>
+            <p class="project-note" data-i18n="noteConexao">Publicado em 15 dias; já em operação na agência.</p>
             <ul class="tags">
               <li>Next.js</li>
               <li>TypeScript</li>
@@ -1227,6 +1352,7 @@
             <p class="project-kind" data-i18n="kindBalcao">Vitrine online para comércio de bairro</p>
             <h3>Balcão Digital</h3>
             <p data-i18n="descBalcao">Loja online para mercados e comércios locais: catálogo, busca, promoções e pedido num fluxo simples para o cliente.</p>
+            <p class="project-note" data-i18n="noteBalcao">SaaS em construção, em fase de validação.</p>
             <ul class="tags">
               <li>Frontend</li>
               <li>E-commerce</li>
@@ -1247,6 +1373,7 @@
             <p class="project-kind" data-i18n="kindConf">Landing page para igreja</p>
             <h3>Conferência Comunidade Profética</h3>
             <p data-i18n="descConf">Página da conferência com programação clara e chamada direta para inscrição, publicada na Vercel.</p>
+            <p class="project-note" data-i18n="noteConf">Página publicada em 5 dias.</p>
             <ul class="tags">
               <li>Landing page</li>
               <li>Frontend</li>
@@ -1269,6 +1396,7 @@
             <p class="project-kind" data-i18n="kindPainel">Painel de finanças pessoais</p>
             <h3>Painel Financeiro do Crente</h3>
             <p data-i18n="descPainel">Painel para organizar entradas, saídas e saldo, com gráficos que mostram a evolução do mês em poucos segundos.</p>
+            <p class="project-note" data-i18n="notePainel">Projeto pessoal, em uso diário.</p>
             <ul class="tags">
               <li>Dashboard</li>
               <li>Frontend</li>
@@ -1280,6 +1408,30 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="section wrap">
+      <div class="section-head">
+        <h2 data-i18n="testiTitle">Quem contratou, conta</h2>
+        <p data-i18n="testiLead">Quem usa os produtos que eu construo, em palavras próprias.</p>
+      </div>
+
+      <div class="testimonials">
+        <figure class="testimonial">
+          <blockquote data-i18n="testi1Quote">Adorei, achei super prático pra ver as vagas também.</blockquote>
+          <figcaption>
+            <strong data-i18n="testi1Name">Promotora de eventos</strong>
+            <span data-i18n="testi1Role">usuária da Conexão Urbana</span>
+          </figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote data-i18n="testi2Quote">Achei muito prático e bem rápido de fazer! Tem outros sites de cadastro que chegam a irritar de tanta demora e burocracia pra colocar as informações.</blockquote>
+          <figcaption>
+            <strong data-i18n="testi2Name">Promotora de eventos</strong>
+            <span data-i18n="testi2Role">usuária da Conexão Urbana</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -1367,19 +1519,24 @@
     <section id="sobre" class="section wrap">
       <div class="split">
         <div class="split-intro">
+          <figure class="portrait">
+            <img src="assets/retrato.jpg" width="900" height="601" data-i18n-attr="alt:altPortrait" alt="Foto de Rafael Andrade" />
+          </figure>
           <h2 data-i18n="aboutTitle">Sobre mim</h2>
-          <p data-i18n="aboutLead">Sou desenvolvedor frontend e gosto de entender o que acontece depois da tela: a regra de negócio, o dado financeiro, a segurança e a rotina de quem usa o sistema todo dia.</p>
+          <p data-i18n="aboutLead">Sou desenvolvedor e gosto de entender o que acontece depois da tela: a regra de negócio, o dado financeiro, a segurança e a rotina de quem usa o sistema todo dia. Trabalho há 4 anos na inChurch e construo produtos próprios como o Nexo.</p>
         </div>
         <div class="split-content">
           <ul class="timeline">
             <li>
               <h3>inChurch</h3>
               <p class="role" data-i18n="role1">Assistente de desenvolvimento frontend</p>
+              <p class="period" data-i18n="period1">2022 — hoje</p>
               <p data-i18n="exp1">Desenvolvimento e evolução de interfaces em Angular, HTML, SCSS e JavaScript na inChurch, líder em tecnologia para igrejas.</p>
             </li>
             <li>
               <h3>Nexo</h3>
               <p class="role" data-i18n="role2">Criador e desenvolvedor</p>
+              <p class="period" data-i18n="period2">Projeto próprio, em produção</p>
               <p data-i18n="exp2">SaaS multi-tenant em produção para gestão de escolas, cobranças e pagamentos, construído de ponta a ponta.</p>
             </li>
           </ul>
@@ -1478,8 +1635,8 @@
       const translations = {
         en: {
           _lang: "en",
-          _title: "Rafael Andrade | Frontend developer",
-          _desc: "Rafael Andrade, frontend developer. I build systems, SaaS, dashboards, and landing pages with React, TypeScript, and Supabase, from scope to launch.",
+          _title: "Rafael Andrade | Product developer",
+          _desc: "Rafael Andrade, product developer. I build systems, SaaS, dashboards, and landing pages with React, TypeScript, and Supabase, from scope to launch.",
           skip: "Skip to content",
           navLabel: "Main navigation",
           homeLabel: "Rafael Andrade, home",
@@ -1493,7 +1650,7 @@
           navCtaShort: "Quote",
           status: "Taking on new projects",
           heroTitle: "I build the system, dashboard, or website your business needs, and ship it.",
-          heroLead: "I'm Rafael Andrade, a frontend developer. I handle the whole path: I learn your business rules, design clear screens, and deliver a live product, with secure payments and data when the project calls for it.",
+          heroLead: "I'm Rafael Andrade, a developer. I've spent 4 years building interfaces at inChurch while shipping my own products on the side: I learn your business rules, design clear screens, and deliver everything live, with secure payments and data when the project calls for it.",
           heroCta: "Get a quote on WhatsApp",
           heroSecondary: "See projects",
           heroProof: "<strong>5 products live</strong>, including a SaaS that already tracks <strong>250+ students</strong> and <strong>R$70k+</strong> in billing.",
@@ -1519,6 +1676,20 @@
           altConexao: "Home screen of the Conexão Urbana Eventos casting platform",
           linkLive: "Visit site",
           linkCode: "Code on GitHub",
+          navTestimonials: "Testimonials",
+          testiTitle: "Clients in their own words",
+          testiLead: "What people who use the products I build say, in their own words.",
+          testi1Quote: "Loved it, found it super practical for checking the gigs too.",
+          testi1Name: "Event promoter",
+          testi1Role: "Conexão Urbana user",
+          testi2Quote: "I found it very practical and really quick to do! Other registration sites can be so irritating with how slow and bureaucratic they are just to enter your info.",
+          testi2Name: "Event promoter",
+          testi2Role: "Conexão Urbana user",
+          altPortrait: "Photo of Rafael Andrade",
+          noteConexao: "Shipped in 15 days; already running at the agency.",
+          noteBalcao: "SaaS in validation: product under construction.",
+          noteConf: "Page published in 5 days.",
+          notePainel: "Personal project, in daily use.",
           kindBalcao: "Online storefront for local shops",
           descBalcao: "Online store for markets and local shops: catalog, search, promotions, and ordering in a simple flow for customers.",
           altBalcao: "Sacolão Carioca store on Balcão Digital with search and products on sale",
@@ -1569,10 +1740,12 @@
           q5: "Debugging",
           q5Text: "Incident investigation until the root cause is confirmed.",
           aboutTitle: "About me",
-          aboutLead: "I'm a frontend developer who cares about what happens behind the screen: the business rule, the financial data, security, and the daily routine of the people using the system.",
+          aboutLead: "I'm a developer who cares about what happens behind the screen: the business rule, the financial data, security, and the daily routine of the people using the system. I've worked at inChurch for 4 years and build my own products like Nexo.",
           role1: "Frontend development assistant",
+          period1: "2022 — present",
           exp1: "Built and improved interfaces in Angular, HTML, SCSS, and JavaScript at inChurch, a leading technology company for churches.",
           role2: "Creator and developer",
+          period2: "Own project, in production",
           exp2: "Multi-tenant SaaS in production for school management, billing, and payments, built end to end.",
           toolsTitle: "Tools I use",
           t1: "Interface",
@@ -1593,8 +1766,8 @@
         },
         es: {
           _lang: "es",
-          _title: "Rafael Andrade | Desarrollador frontend",
-          _desc: "Rafael Andrade, desarrollador frontend. Construyo sistemas, SaaS, paneles y landing pages con React, TypeScript y Supabase, del alcance a la publicación.",
+          _title: "Rafael Andrade | Desarrollador de productos",
+          _desc: "Rafael Andrade, desarrollador de productos. Construyo sistemas, SaaS, paneles y landing pages con React, TypeScript y Supabase, del alcance a la publicación.",
           skip: "Saltar al contenido",
           navLabel: "Navegación principal",
           homeLabel: "Rafael Andrade, inicio",
@@ -1608,7 +1781,7 @@
           navCtaShort: "Presupuesto",
           status: "Acepto nuevos proyectos",
           heroTitle: "Construyo el sistema, el panel o el sitio que tu negocio necesita, y lo pongo en línea.",
-          heroLead: "Soy Rafael Andrade, desarrollador frontend. Me encargo de todo el camino: entiendo las reglas de tu negocio, diseño pantallas claras y entrego el producto publicado, con pagos y datos seguros cuando el proyecto lo pide.",
+          heroLead: "Soy Rafael Andrade, desarrollador. Llevo 4 años trabajando en interfaces en inChurch y, en paralelo, lanzo mis propios productos: entiendo las reglas de tu negocio, diseño pantallas claras y entrego todo publicado, con pagos y datos seguros cuando el proyecto lo pide.",
           heroCta: "Pedir presupuesto por WhatsApp",
           heroSecondary: "Ver proyectos",
           heroProof: "<strong>5 productos en línea</strong>, entre ellos un SaaS que ya gestiona <strong>250+ alumnos</strong> y <strong>R$70k+</strong> en cobros.",
@@ -1634,6 +1807,20 @@
           altConexao: "Pantalla inicial de la plataforma de casting Conexão Urbana Eventos",
           linkLive: "Ver en línea",
           linkCode: "Código en GitHub",
+          navTestimonials: "Testimonios",
+          testiTitle: "Quienes contrataron, cuentan",
+          testiLead: "Lo que dicen quienes usan los productos que construyo, en sus propias palabras.",
+          testi1Quote: "Me encantó, me pareció súper práctico para ver los trabajos también.",
+          testi1Name: "Promotora de eventos",
+          testi1Role: "usuaria de Conexão Urbana",
+          testi2Quote: "¡Me pareció muy práctico y rapidísimo de hacer! Hay otros sitios de registro que llegan a irritar de tanta demora y burocracia para poner la información.",
+          testi2Name: "Promotora de eventos",
+          testi2Role: "usuaria de Conexão Urbana",
+          altPortrait: "Foto de Rafael Andrade",
+          noteConexao: "Publicado en 15 días; ya en operación en la agencia.",
+          noteBalcao: "SaaS en validación: producto en construcción.",
+          noteConf: "Página publicada en 5 días.",
+          notePainel: "Proyecto personal, en uso diario.",
           kindBalcao: "Tienda online para comercio de barrio",
           descBalcao: "Tienda online para mercados y comercios locales: catálogo, búsqueda, promociones y pedidos en un flujo simple para el cliente.",
           altBalcao: "Tienda Sacolão Carioca en Balcão Digital con búsqueda y productos en oferta",
@@ -1684,10 +1871,12 @@
           q5: "Depuración",
           q5Text: "Investigación de incidentes hasta confirmar la causa raíz.",
           aboutTitle: "Sobre mí",
-          aboutLead: "Soy desarrollador frontend y me gusta entender lo que pasa detrás de la pantalla: la regla de negocio, el dato financiero, la seguridad y la rutina de quien usa el sistema todos los días.",
+          aboutLead: "Soy desarrollador y me gusta entender lo que pasa detrás de la pantalla: la regla de negocio, el dato financiero, la seguridad y la rutina de quien usa el sistema todos los días. Trabajo hace 4 años en inChurch y construyo productos propios como Nexo.",
           role1: "Asistente de desarrollo frontend",
+          period1: "2022 — actualidad",
           exp1: "Desarrollo y evolución de interfaces en Angular, HTML, SCSS y JavaScript en inChurch, líder en tecnología para iglesias.",
           role2: "Creador y desarrollador",
+          period2: "Proyecto propio, en producción",
           exp2: "SaaS multi-tenant en producción para gestión de escuelas, cobros y pagos, construido de punta a punta.",
           toolsTitle: "Herramientas que uso",
           t1: "Interfaz",

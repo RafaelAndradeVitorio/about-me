@@ -1,4 +1,6 @@
-# Rafael Andrade Silva - Portfolio
+# Rafael Andrade - Portfolio
+
+> Desenvolvedor que entrega produtos de ponta a ponta: do escopo à publicação. Criador do Nexo, SaaS multi-tenant em produção com 250+ alunos e R$70k+ em cobranças acompanhadas. 5 produtos no ar (SaaS, dashboards, e-commerce, landing pages). Stack: React, TypeScript, Next.js, Angular, Supabase/PostgreSQL, Asaas/PIX, WhatsApp Business API.
 
 Portfolio pessoal para apresentar meu trabalho como desenvolvedor frontend para clientes: sistemas e SaaS, paineis e dashboards, sites e landing pages, do escopo a publicacao.
 

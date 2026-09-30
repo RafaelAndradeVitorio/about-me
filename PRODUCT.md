@@ -12,7 +12,7 @@ Público secundário: recrutadores e tech leads que querem entender nível técn
 
 ## Product Purpose
 
-Portfólio de Rafael Andrade, desenvolvedor frontend. Mostra produtos reais publicados (Nexo, Conexão Urbana, Balcão Digital, Conferência Comunidade Profética, Painel Financeiro do Crente), explica o que ele constrói e como trabalha, e leva o visitante a pedir um orçamento pelo WhatsApp.
+Portfólio de Rafael Andrade, desenvolvedor de produtos. Mostra produtos reais publicados (Nexo, Conexão Urbana, Balcão Digital, Conferência Comunidade Profética, Painel Financeiro do Crente), explica o que ele constrói e como trabalha, e leva o visitante a pedir um orçamento pelo WhatsApp.
 
 Sucesso: o visitante entende em segundos que Rafael já entregou projetos parecidos com o dele e inicia uma conversa.
 
