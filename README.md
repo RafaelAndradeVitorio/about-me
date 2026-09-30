@@ -20,9 +20,9 @@ O que o projeto demonstra:
 
 - Arquitetura multi-tenant com `organization_id` e Row Level Security.
 - Supabase/PostgreSQL para dados, autenticacao, funcoes e realtime.
-- Integracao com Mercado Pago para PIX, pagamentos avulsos e recorrencia.
+- Integracao com Asaas para PIX, pagamentos avulsos e recorrencia.
 - Webhooks idempotentes e reconciliacao de cobrancas.
-- Integracao com WhatsApp via Evolution API.
+- Integracao com a API oficial do WhatsApp (WhatsApp Business API).
 - Dashboards e KPIs para operacao financeira e pedagogica.
 
 ![Preview do Nexo](assets/showcase-pedagogia.png)
@@ -31,7 +31,7 @@ O que o projeto demonstra:
 
 - Frontend: React, TypeScript, Angular, JavaScript, CSS e SCSS.
 - Dados e seguranca: Supabase, PostgreSQL, Auth, Edge Functions, Realtime e RLS.
-- Operacao: Mercado Pago, PIX, Webhooks, Evolution API e WhatsApp API.
+- Operacao: Asaas, PIX, Webhooks e API oficial do WhatsApp.
 - Qualidade: Playwright, Vitest, staging, migrations, code review e documentacao.
 
 ## Como visualizar

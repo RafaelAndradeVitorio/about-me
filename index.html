@@ -232,16 +232,13 @@
     }
 
     .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: var(--on-accent);
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+      flex: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line);
     }
 
     .nav-links {
@@ -1082,7 +1079,7 @@
   <header class="site-header">
     <nav class="nav wrap" data-i18n-attr="aria-label:navLabel" aria-label="Navegação principal">
       <a class="brand" href="#topo" data-i18n-attr="aria-label:homeLabel" aria-label="Rafael Andrade, início">
-        <span class="brand-mark" aria-hidden="true">RA</span>
+        <img class="brand-mark" src="assets/avatar.jpg" width="36" height="36" alt="" />
         <span class="brand-name">Rafael Andrade</span>
       </a>
 
@@ -1179,7 +1176,7 @@
               <li>TypeScript</li>
               <li>Supabase</li>
               <li>PostgreSQL</li>
-              <li>Mercado Pago</li>
+              <li>Asaas</li>
             </ul>
           </div>
           <div class="case">
@@ -1189,7 +1186,7 @@
             </div>
             <div>
               <h4 data-i18n="caseSolution">Solução</h4>
-              <p data-i18n="caseSolutionText">Sistema para várias escolas, com dados isolados por organização, Mercado Pago integrado (PIX e recorrência), webhooks idempotentes e conciliação financeira.</p>
+              <p data-i18n="caseSolutionText">Sistema para várias escolas, com dados isolados por organização, Asaas integrado (PIX e recorrência), webhooks idempotentes e conciliação financeira.</p>
             </div>
             <div>
               <h4 data-i18n="caseResult">Resultado</h4>
@@ -1399,7 +1396,7 @@
             </div>
             <div>
               <dt data-i18n="t3">Pagamentos e integrações</dt>
-              <dd>Mercado Pago, PIX, Webhooks, Evolution API, WhatsApp API</dd>
+              <dd>Asaas, PIX, Webhooks, WhatsApp Business API</dd>
             </div>
             <div>
               <dt data-i18n="t4">Qualidade</dt>
@@ -1514,7 +1511,7 @@
           caseProblem: "Problem",
           caseProblemText: "One-off payments, PIX, subscriptions, and monthly fees were mixed together, and schools couldn't be sure who was up to date.",
           caseSolution: "Solution",
-          caseSolutionText: "A multi-school system with data isolated per organization, Mercado Pago integration (PIX and recurring billing), idempotent webhooks, and financial reconciliation.",
+          caseSolutionText: "A multi-school system with data isolated per organization, Asaas integration (PIX and recurring billing), idempotent webhooks, and financial reconciliation.",
           caseResult: "Result",
           caseResultText: "<strong>250+ students</strong> and <strong>R$70k+</strong> in billing tracked, with fewer false late-payment alerts.",
           kindConexao: "Platform for an event agency",
@@ -1629,7 +1626,7 @@
           caseProblem: "Problema",
           caseProblemText: "Pagos sueltos, PIX, suscripciones y mensualidades se mezclaban, y la escuela no sabía con certeza quién estaba al día.",
           caseSolution: "Solución",
-          caseSolutionText: "Sistema para varias escuelas, con datos aislados por organización, Mercado Pago integrado (PIX y cobro recurrente), webhooks idempotentes y conciliación financiera.",
+          caseSolutionText: "Sistema para varias escuelas, con datos aislados por organización, Asaas integrado (PIX y cobro recurrente), webhooks idempotentes y conciliación financiera.",
           caseResult: "Resultado",
           caseResultText: "<strong>250+ alumnos</strong> y <strong>R$70k+</strong> en cobros monitoreados, con menos alertas falsas de morosidad.",
           kindConexao: "Plataforma para agencia de eventos",
