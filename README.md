@@ -1,15 +1,16 @@
 # Rafael Andrade Silva - Portfolio
 
-Portfolio pessoal criado para apresentar minha atuacao como Frontend Developer, com foco em interfaces de produto, experiencia de usuario, SaaS, dados e integracoes reais.
+Portfolio pessoal para apresentar meu trabalho como desenvolvedor frontend para clientes: sistemas e SaaS, paineis e dashboards, sites e landing pages, do escopo a publicacao.
 
-O site destaca minha experiencia com Angular, React, TypeScript, Supabase, PostgreSQL, pagamentos, WhatsApp e desenvolvimento assistido por IA com revisao tecnica.
+O site mostra produtos reais publicados, os servicos, o processo de trabalho e leva o visitante a pedir um orcamento pelo WhatsApp com a mensagem pronta.
 
 ## Destaques
 
-- Apresentacao profissional direta para recrutadores.
-- Case principal do Nexo, um SaaS multi-tenant para gestao escolar e pagamentos.
-- Stack organizada por area: interface, dados, operacao e qualidade.
-- Contatos profissionais com LinkedIn, e-mail e WhatsApp.
+- Projetos em producao: Nexo, Conexao Urbana, Balcao Digital, Conferencia Comunidade Profetica e Painel Financeiro do Crente.
+- Servicos, processo em 3 passos e uso de IA com revisao humana.
+- Contato com escolha do tipo de projeto e mensagem pronta no WhatsApp.
+- Tres idiomas (PT, EN, ES) com traducoes por chave (`data-i18n`).
+- Layout responsivo, tema claro, tipografia Schibsted Grotesk. Diretrizes de design em `PRODUCT.md`.
 
 ## Case principal: Nexo
 
@@ -35,10 +36,10 @@ O que o projeto demonstra:
 
 ## Como visualizar
 
-Abra o arquivo `index.html` diretamente no navegador.
+Abra o arquivo `index.html` diretamente no navegador, ou sirva a pasta localmente:
 
 ```bash
-start index.html
+python -m http.server 5500
 ```
 
 ## Contato
